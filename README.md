@@ -1,1 +1,1 @@
-# russian-losses-statistics
+This project was createted for monitoring of russian losses.
