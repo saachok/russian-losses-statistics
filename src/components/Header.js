@@ -4,7 +4,13 @@ import React from "react";
 const Header = () => {
   return (
     <AppBar
-      sx={{ height: "50px", alignItems: "center", justifyContent: "center" }}
+      sx={{
+        height: "50px",
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+      position="sticky"
     >
       <Typography variant="h5">
         Russian losses at war against Ukraine
