@@ -1,26 +1,40 @@
 import { Box, Typography } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 
 import MonthChanger from "./MonthChanger";
 
 const Charts = () => {
-  const [losses, setLosses] = useState({
-    personnel_units: [],
-    tanks: [],
-    armoured_fighting_vehicles: [],
-    artillery_systems: [],
-    mlrs: [],
-    aa_warfare_systems: [],
-    planes: [],
-    helicopters: [],
-    vehicles_fuel_tanks: [],
-    warships_cutters: [],
-    cruise_missiles: [],
-    uav_systems: [],
-    special_military_equip: [],
-    atgm_srbm_systems: [],
-  });
+  const [losses, setLosses] = useState(
+    null
+    //   {
+    //   personnel_units: [],
+    //   tanks: [],
+    //   armoured_fighting_vehicles: [],
+    //   artillery_systems: [],
+    //   mlrs: [],
+    //   aa_warfare_systems: [],
+    //   planes: [],
+    //   helicopters: [],
+    //   vehicles_fuel_tanks: [],
+    //   warships_cutters: [],
+    //   cruise_missiles: [],
+    //   uav_systems: [],
+    //   special_military_equip: [],
+    //   atgm_srbm_systems: [],
+    // }
+  );
+
+  useEffect(() => {
+    if (losses === null) {
+      return;
+    }
+    printData(losses);
+  }, [losses]);
+
+  const printData = (data) => {
+    console.log(data);
+  };
 
   const getData = (data) => {
     setLosses(() => {
@@ -76,7 +90,6 @@ const Charts = () => {
         ),
       };
     });
-    console.log(losses);
   };
 
   return (

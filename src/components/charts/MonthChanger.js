@@ -49,7 +49,6 @@ const MonthChanger = (props) => {
     const data = await response.json();
 
     props.sendData(data);
-    // console.log(data);
   };
 
   useEffect(() => {
