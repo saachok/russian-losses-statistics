@@ -1,7 +1,7 @@
 import { Container } from "@mui/material";
 
 import Header from "./components/Header";
-import Charts from "./components/charts/Charts";
+import ChartsHolder from "./components/chartsHolder/ChartsHolder";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       maxWidth="false"
     >
       <Header />
-      <Charts />
+      <ChartsHolder />
     </Container>
   );
 }

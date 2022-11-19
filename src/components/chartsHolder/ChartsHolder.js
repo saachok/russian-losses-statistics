@@ -1,29 +1,12 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { useState, useEffect } from "react";
 import React from "react";
 
 import MonthChanger from "./MonthChanger";
+import BarChart from "./charts/BarChart";
 
-const Charts = () => {
-  const [losses, setLosses] = useState(
-    null
-    //   {
-    //   personnel_units: [],
-    //   tanks: [],
-    //   armoured_fighting_vehicles: [],
-    //   artillery_systems: [],
-    //   mlrs: [],
-    //   aa_warfare_systems: [],
-    //   planes: [],
-    //   helicopters: [],
-    //   vehicles_fuel_tanks: [],
-    //   warships_cutters: [],
-    //   cruise_missiles: [],
-    //   uav_systems: [],
-    //   special_military_equip: [],
-    //   atgm_srbm_systems: [],
-    // }
-  );
+const ChartsHolder = () => {
+  const [losses, setLosses] = useState(null);
 
   useEffect(() => {
     if (losses === null) {
@@ -39,6 +22,7 @@ const Charts = () => {
   const getData = (data) => {
     setLosses(() => {
       return {
+        date: data.data.records.map((element) => element.date),
         personnel_units: data.data.records.map(
           (element) => element.stats.personnel_units
         ),
@@ -95,8 +79,9 @@ const Charts = () => {
   return (
     <Box>
       <MonthChanger sendData={getData} />
+      <BarChart data={losses} />
     </Box>
   );
 };
 
-export default Charts;
+export default ChartsHolder;

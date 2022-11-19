@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -8,7 +8,6 @@ import Select from "@mui/material/Select";
 
 const MonthChanger = (props) => {
   const [month, setMonth] = React.useState("");
-  const [fetchedData, setDetchedData] = useState(null);
   let API = "";
 
   switch (month) {
