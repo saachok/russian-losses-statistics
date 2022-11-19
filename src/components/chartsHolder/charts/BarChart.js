@@ -2,20 +2,48 @@ import React, { useEffect, useState } from "react";
 import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 
+const initialState = {
+  aa_warfare_systems: [],
+  armoured_fighting_vehicles: [],
+  artillery_systems: [],
+  atgm_srbm_systems: [],
+  cruise_missiles: [],
+  date: [],
+  helicopters: [],
+  mlrs: [],
+  personnel_units: [],
+  planes: [],
+  special_military_equip: [],
+  tanks: [],
+  uav_systems: [],
+  vehicles_fuel_tanks: [],
+  warships_cutters: [],
+};
+
 const BarChart = ({ data }) => {
-  if (!data) {
-    return null;
-  }
+  const [losses, setLosses] = useState(initialState);
+
+  useEffect(() => {
+    if (data) {
+      setLosses(() => data);
+    }
+  }, [data]);
+
+  console.log("BarChart losses: ", losses);
+
+  // if (!data) {
+  //   return null;
+  // }
 
   return (
     <div>
       <Bar
         data={{
-          labels: data.date,
+          labels: losses.date,
           datasets: [
             {
-              label: "Personnal units",
-              data: data.helicopters,
+              label: "Losses stats",
+              data: losses.helicopters,
               // [65, 59, 80, 81, 56, 55, 40],
               //   backgroundColor: [
               //     "rgba(255, 99, 132, 0.2)",
@@ -39,6 +67,9 @@ const BarChart = ({ data }) => {
             },
           ],
         }}
+        height={400}
+        // width={"40%"}
+        options={{ maintainAspectRatio: false }}
       />
     </div>
   );

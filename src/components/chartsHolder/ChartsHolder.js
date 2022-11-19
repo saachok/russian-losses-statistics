@@ -6,13 +6,32 @@ import MonthChanger from "./MonthChanger";
 import BarChart from "./charts/BarChart";
 
 const ChartsHolder = () => {
-  const [losses, setLosses] = useState(null);
+  const [losses, setLosses] = useState(
+    null
+    //   {
+    //   aa_warfare_systems: [],
+    //   armoured_fighting_vehicles: [],
+    //   artillery_systems: [],
+    //   atgm_srbm_systems: [],
+    //   cruise_missiles: [],
+    //   date: [],
+    //   helicopters: [],
+    //   mlrs: [],
+    //   personnel_units: [],
+    //   planes: [],
+    //   special_military_equip: [],
+    //   tanks: [],
+    //   uav_systems: [],
+    //   vehicles_fuel_tanks: [],
+    //   warships_cutters: [],
+    // }
+  );
 
   useEffect(() => {
     if (losses === null) {
       return;
     }
-    printData(losses);
+    // printData(losses);
   }, [losses]);
 
   const printData = (data) => {
@@ -77,9 +96,9 @@ const ChartsHolder = () => {
   };
 
   return (
-    <Box>
-      <MonthChanger sendData={getData} />
+    <Box sx={{ height: "100%" }}>
       <BarChart data={losses} />
+      <MonthChanger sendData={getData} />
     </Box>
   );
 };
