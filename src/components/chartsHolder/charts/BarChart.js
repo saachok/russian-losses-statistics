@@ -29,7 +29,7 @@ const BarChart = ({ data }) => {
     }
   }, [data]);
 
-  console.log("BarChart losses: ", losses);
+  // console.log("BarChart losses: ", losses);
 
   // if (!data) {
   //   return null;

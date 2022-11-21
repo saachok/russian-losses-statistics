@@ -2,8 +2,8 @@ import { Box } from "@mui/material";
 import { useState, useEffect } from "react";
 import React from "react";
 
-import MonthChanger from "./MonthChanger";
 import BarChart from "./charts/BarChart";
+import LossesSelector from "./LossesSelector";
 
 const ChartsHolder = () => {
   const [losses, setLosses] = useState(
@@ -34,11 +34,11 @@ const ChartsHolder = () => {
     // printData(losses);
   }, [losses]);
 
-  const printData = (data) => {
-    console.log(data);
-  };
+  // const printData = (data) => {
+  //   console.log(data);
+  // };
 
-  const getData = (data) => {
+  const getDataFromAPI = (data) => {
     setLosses(() => {
       return {
         date: data.data.records.map((element) => element.date),
@@ -98,7 +98,7 @@ const ChartsHolder = () => {
   return (
     <Box sx={{ height: "100%" }}>
       <BarChart data={losses} />
-      <MonthChanger sendData={getData} />
+      <LossesSelector sendData={getDataFromAPI} />
     </Box>
   );
 };

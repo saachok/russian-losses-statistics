@@ -8,51 +8,10 @@ import Select from "@mui/material/Select";
 
 const MonthChanger = (props) => {
   const [month, setMonth] = React.useState("");
-  let API = "";
-
-  switch (month) {
-    case "February":
-      API = "https://russianwarship.rip/api/v1/statistics?offset=0&limit=3";
-      break;
-    case "March":
-      API = "https://russianwarship.rip/api/v1/statistics?offset=3&limit=31";
-      break;
-    case "April":
-      API = "https://russianwarship.rip/api/v1/statistics?offset=34&limit=30";
-      break;
-    case "May":
-      API = "https://russianwarship.rip/api/v1/statistics?offset=64&limit=31";
-      break;
-    case "June":
-      API = "https://russianwarship.rip/api/v1/statistics?offset=95&limit=30";
-      break;
-    case "July":
-      API = "https://russianwarship.rip/api/v1/statistics?offset=125&limit=31";
-      break;
-    case "August":
-      API = "https://russianwarship.rip/api/v1/statistics?offset=156&limit=31";
-      break;
-    case "September":
-      API = "https://russianwarship.rip/api/v1/statistics?offset=187&limit=30";
-      break;
-    case "October":
-      API = "https://russianwarship.rip/api/v1/statistics?offset=217&limit=31";
-      break;
-    default:
-      break;
-  }
-
-  const fetchData = async () => {
-    const response = await fetch(API);
-
-    const data = await response.json();
-
-    props.sendData(data);
-  };
 
   useEffect(() => {
     if (month !== "") {
-      fetchData();
+      props.getMonth(month);
     }
   }, [month]);
 
@@ -61,7 +20,7 @@ const MonthChanger = (props) => {
   };
 
   return (
-    <Box sx={{ minWidth: 120, marginTop: "8px" }}>
+    <Box sx={{ minWidth: 120, width: 220, marginTop: "8px" }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Month</InputLabel>
         <Select
