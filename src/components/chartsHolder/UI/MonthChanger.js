@@ -13,7 +13,7 @@ const MonthChanger = (props) => {
     if (month !== "") {
       props.getMonth(month);
     }
-  }, [month]);
+  }, [month, props]);
 
   const handleChange = (event) => {
     setMonth(event.target.value);

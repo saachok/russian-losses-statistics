@@ -6,6 +6,7 @@ import LossChanger from "./UI/LossChanger";
 const LossesSelector = (props) => {
   const [month, setMonth] = useState("");
   const [loss, setLoss] = useState("");
+
   let API = "";
 
   switch (month) {
@@ -44,14 +45,20 @@ const LossesSelector = (props) => {
     if (month !== "") {
       fetchData();
     }
-  }, [month]);
+  }, [month, loss]);
 
   const fetchData = async () => {
     const response = await fetch(API);
     const data = await response.json();
-    console.log("month: ", month);
-    console.log("loss: ", loss);
-    props.sendData(data);
+
+    const date = data.data.records.map((element) => element.date);
+    const losses = {
+      // title: data.data.records[0].stats[`${loss}`],
+      title: loss,
+      amount: data.data.records.map((element) => element.stats[`${loss}`]),
+    };
+
+    props.sendData(date, losses);
   };
 
   const setMonthState = (month) => {

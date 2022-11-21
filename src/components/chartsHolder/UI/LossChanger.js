@@ -13,7 +13,7 @@ const LossChanger = (props) => {
     if (loss !== "") {
       props.getLoss(loss);
     }
-  }, [loss]);
+  }, [loss, props]);
 
   const handleChange = (event) => {
     setMonth(event.target.value);

@@ -3,21 +3,24 @@ import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 
 const initialState = {
-  aa_warfare_systems: [],
-  armoured_fighting_vehicles: [],
-  artillery_systems: [],
-  atgm_srbm_systems: [],
-  cruise_missiles: [],
   date: [],
-  helicopters: [],
-  mlrs: [],
-  personnel_units: [],
-  planes: [],
-  special_military_equip: [],
-  tanks: [],
-  uav_systems: [],
-  vehicles_fuel_tanks: [],
-  warships_cutters: [],
+  losses: [],
+
+  //   aa_warfare_systems: [],
+  //   armoured_fighting_vehicles: [],
+  //   artillery_systems: [],
+  //   atgm_srbm_systems: [],
+  //   cruise_missiles: [],
+  //   date: [],
+  //   helicopters: [],
+  //   mlrs: [],
+  //   personnel_units: [],
+  //   planes: [],
+  //   special_military_equip: [],
+  //   tanks: [],
+  //   uav_systems: [],
+  //   vehicles_fuel_tanks: [],
+  //   warships_cutters: [],
 };
 
 const BarChart = ({ data }) => {
@@ -28,6 +31,8 @@ const BarChart = ({ data }) => {
       setLosses(() => data);
     }
   }, [data]);
+
+  // console.log(losses);
 
   // console.log("BarChart losses: ", losses);
 
@@ -42,8 +47,8 @@ const BarChart = ({ data }) => {
           labels: losses.date,
           datasets: [
             {
-              label: "Losses stats",
-              data: losses.helicopters,
+              label: losses.losses.title,
+              data: losses.losses.amount,
               // [65, 59, 80, 81, 56, 55, 40],
               //   backgroundColor: [
               //     "rgba(255, 99, 132, 0.2)",
