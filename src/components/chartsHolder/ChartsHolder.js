@@ -83,7 +83,14 @@ const ChartsHolder = () => {
   };
 
   return (
-    <Box sx={{ height: "100%" }}>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      width={"100wv"}
+      paddingTop={"1rem"}
+    >
       <BarChart data={losses} />
       <LossesSelector sendData={getData} />
     </Box>
