@@ -9,7 +9,7 @@ const initialState = {
 
 const BarChart = ({ data }) => {
   const [losses, setLosses] = useState(initialState);
-  const [lossTitle, setLossTitle] = useState("Choose loss");
+  const [lossTitle, setLossTitle] = useState("Select input info");
 
   useEffect(() => {
     if (data) {
