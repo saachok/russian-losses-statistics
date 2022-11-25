@@ -5,22 +5,6 @@ import { Bar } from "react-chartjs-2";
 const initialState = {
   date: [],
   losses: [],
-
-  //   aa_warfare_systems: [],
-  //   armoured_fighting_vehicles: [],
-  //   artillery_systems: [],
-  //   atgm_srbm_systems: [],
-  //   cruise_missiles: [],
-  //   date: [],
-  //   helicopters: [],
-  //   mlrs: [],
-  //   personnel_units: [],
-  //   planes: [],
-  //   special_military_equip: [],
-  //   tanks: [],
-  //   uav_systems: [],
-  //   vehicles_fuel_tanks: [],
-  //   warships_cutters: [],
 };
 
 const BarChart = ({ data }) => {

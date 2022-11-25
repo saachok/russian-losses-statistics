@@ -6,26 +6,7 @@ import BarChart from "./charts/BarChart";
 import LossesSelector from "./LossesSelector";
 
 const ChartsHolder = () => {
-  const [losses, setLosses] = useState(
-    null
-    //   {
-    //   aa_warfare_systems: [],
-    //   armoured_fighting_vehicles: [],
-    //   artillery_systems: [],
-    //   atgm_srbm_systems: [],
-    //   cruise_missiles: [],
-    //   date: [],
-    //   helicopters: [],
-    //   mlrs: [],
-    //   personnel_units: [],
-    //   planes: [],
-    //   special_military_equip: [],
-    //   tanks: [],
-    //   uav_systems: [],
-    //   vehicles_fuel_tanks: [],
-    //   warships_cutters: [],
-    // }
-  );
+  const [losses, setLosses] = useState(null);
 
   useEffect(() => {
     if (losses === null) {

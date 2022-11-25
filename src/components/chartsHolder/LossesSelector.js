@@ -53,7 +53,6 @@ const LossesSelector = (props) => {
 
     const date = data.data.records.map((element) => element.date);
     const losses = {
-      // title: data.data.records[0].stats[`${loss}`],
       title: loss,
       amount: data.data.records.map((element) => element.stats[`${loss}`]),
     };
