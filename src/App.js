@@ -6,9 +6,14 @@ import ChartsHolder from "./components/chartsHolder/ChartsHolder";
 function App() {
   return (
     <Container
-      fixed
-      sx={{ height: "100vh", margin: 0, padding: 0 }}
       maxWidth="false"
+      disableGutters
+      sx={{
+        height: "100vh",
+        margin: 0,
+        padding: 0,
+        overflow: "hidden",
+      }}
     >
       <Header />
       <ChartsHolder />
