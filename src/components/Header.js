@@ -8,7 +8,7 @@ const Header = () => {
       sx={{
         // margin: 0,
         // padding: 0,
-        height: "50px",
+        height: "3.5rem",
         width: "100wv",
         alignItems: "center",
         justifyContent: "center",
