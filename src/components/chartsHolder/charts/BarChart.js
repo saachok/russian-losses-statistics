@@ -76,6 +76,8 @@ const BarChart = ({ data }) => {
             {
               label: lossTitle,
               data: losses.losses.amount,
+              backgroundColor: "rgba(104, 159, 56, 0.6)",
+              borderColor: "rgba(72, 111, 39, 1)",
               borderWidth: 1,
             },
           ],
