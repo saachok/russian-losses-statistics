@@ -17,11 +17,16 @@ function App() {
         maxWidth="false"
         disableGutters
         sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+
           height: "100vh",
           margin: 0,
           padding: 0,
-          overflow: "hidden",
           backgroundColor: "#e0ffbb",
+
+          overflow: "hidden",
         }}
       >
         <Header />

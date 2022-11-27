@@ -4,7 +4,7 @@ import React from "react";
 const Header = () => {
   return (
     <AppBar
-      position="sticky"
+      position="absolute"
       sx={{
         // margin: 0,
         // padding: 0,
