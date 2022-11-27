@@ -1,8 +1,6 @@
-import { Container } from "@mui/material";
-
 import Header from "./components/Header";
 import ChartsHolder from "./components/chartsHolder/ChartsHolder";
-import { createTheme, ThemeProvider } from "@mui/material";
+import { Container, createTheme, ThemeProvider } from "@mui/material";
 
 const theme = createTheme({
   palette: {

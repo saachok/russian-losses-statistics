@@ -13,7 +13,7 @@ const LossesSelector = (props) => {
 
   switch (month) {
     case "February":
-      API = "https://russianwarshi.rip/api/v1/statistics?offset=0&limit=3";
+      API = "https://russianwarship.rip/api/v1/statistics?offset=0&limit=3";
       break;
     case "March":
       API = "https://russianwarship.rip/api/v1/statistics?offset=3&limit=31";
