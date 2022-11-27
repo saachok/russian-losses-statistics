@@ -1,17 +1,19 @@
 import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import MonthChanger from "./UI/MonthChanger";
-import LossChanger from "./UI/LossChanger";
+import MonthChanger from "./inputChangers/MonthChanger";
+import LossChanger from "./inputChangers/LossChanger";
+import ErrorModal from "../UI/ErrorModal";
 
 const LossesSelector = (props) => {
   const [month, setMonth] = useState("");
   const [loss, setLoss] = useState("");
+  const [error, setError] = useState(false);
 
   let API = "";
 
   switch (month) {
     case "February":
-      API = "https://russianwarship.rip/api/v1/statistics?offset=0&limit=3";
+      API = "https://russianwarshi.rip/api/v1/statistics?offset=0&limit=3";
       break;
     case "March":
       API = "https://russianwarship.rip/api/v1/statistics?offset=3&limit=31";
@@ -48,16 +50,21 @@ const LossesSelector = (props) => {
   }, [month, loss]);
 
   const fetchData = async () => {
-    const response = await fetch(API);
-    const data = await response.json();
+    try {
+      const response = await fetch(API);
 
-    const date = data.data.records.map((element) => element.date);
-    const losses = {
-      title: loss,
-      amount: data.data.records.map((element) => element.stats[`${loss}`]),
-    };
+      const data = await response.json();
 
-    props.sendData(date, losses);
+      const date = data.data.records.map((element) => element.date);
+      const losses = {
+        title: loss,
+        amount: data.data.records.map((element) => element.stats[`${loss}`]),
+      };
+
+      props.sendData(date, losses);
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   const setMonthState = (month) => {
@@ -76,6 +83,15 @@ const LossesSelector = (props) => {
       alignItems="center"
       gap="1rem"
     >
+      {error && (
+        <ErrorModal
+          isOpen={!!error}
+          errorText={error}
+          onClose={() => {
+            setError(false);
+          }}
+        />
+      )}
       <MonthChanger getMonth={setMonthState} />
       <LossChanger getLoss={setLossState} />
     </Box>
