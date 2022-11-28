@@ -6,15 +6,14 @@ const Header = () => {
     <AppBar
       position="absolute"
       sx={{
-        // margin: 0,
-        // padding: 0,
-        height: "3.5rem",
+        height: "4rem",
         width: "100wv",
         alignItems: "center",
+        textAlign: "center",
         justifyContent: "center",
       }}
     >
-      <Typography variant="h5">
+      <Typography variant={"h5"}>
         Russian losses at war against Ukraine
       </Typography>
     </AppBar>

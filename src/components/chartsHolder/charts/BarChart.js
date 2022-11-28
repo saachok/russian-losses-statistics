@@ -9,7 +9,7 @@ const initialState = {
 
 const BarChart = ({ data }) => {
   const [losses, setLosses] = useState(initialState);
-  const [lossTitle, setLossTitle] = useState("Select input info");
+  const [lossTitle, setLossTitle] = useState(null);
 
   useEffect(() => {
     if (data) {
@@ -68,7 +68,13 @@ const BarChart = ({ data }) => {
   }, [losses.losses.title]);
 
   return (
-    <div>
+    <div
+      style={{
+        position: "relative",
+        width: "inherit",
+        height: "inherit",
+      }}
+    >
       <Bar
         data={{
           labels: losses.date,
@@ -82,10 +88,13 @@ const BarChart = ({ data }) => {
             },
           ],
         }}
-        height={"300px"}
-        width={"600px"}
         options={{
           maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: lossTitle ? true : false,
+            },
+          },
         }}
       />
     </div>

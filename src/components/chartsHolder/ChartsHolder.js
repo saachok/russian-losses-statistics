@@ -9,11 +9,11 @@ const PaperWrapper = styled(Paper)({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  width: "inherit",
+  height: "inherit",
   backgroundColor: "#d8fcac",
   padding: "1rem",
 });
-
-const ChartsWrapper = styled(Stack)({});
 
 const ChartsHolder = () => {
   const [losses, setLosses] = useState(null);
@@ -22,69 +22,7 @@ const ChartsHolder = () => {
     if (losses === null) {
       return;
     }
-    // printData(losses);
   }, [losses]);
-
-  // const printData = (data) => {
-  //   console.log(data);
-  // };
-
-  // const getDataFromAPI = (data) => {
-  //   setLosses(() => {
-  //     return {
-  //       date: data.data.records.map((element) => element.date),
-  //       personnel_units: data.data.records.map(
-  //         (element) => element.stats.personnel_units
-  //       ),
-
-  //       tanks: data.data.records.map((element) => element.stats.tanks),
-
-  //       armoured_fighting_vehicles: data.data.records.map(
-  //         (element) => element.stats.tanks
-  //       ),
-
-  //       artillery_systems: data.data.records.map(
-  //         (element) => element.stats.artillery_systems
-  //       ),
-
-  //       mlrs: data.data.records.map((element) => element.stats.mlrs),
-
-  //       aa_warfare_systems: data.data.records.map(
-  //         (element) => element.stats.aa_warfare_systems
-  //       ),
-
-  //       planes: data.data.records.map((element) => element.stats.planes),
-
-  //       helicopters: data.data.records.map(
-  //         (element) => element.stats.helicopters
-  //       ),
-
-  //       vehicles_fuel_tanks: data.data.records.map(
-  //         (element) => element.stats.vehicles_fuel_tanks
-  //       ),
-
-  //       warships_cutters: data.data.records.map(
-  //         (element) => element.stats.warships_cutters
-  //       ),
-
-  //       cruise_missiles: data.data.records.map(
-  //         (element) => element.stats.cruise_missiles
-  //       ),
-
-  //       uav_systems: data.data.records.map(
-  //         (element) => element.stats.uav_systems
-  //       ),
-
-  //       special_military_equip: data.data.records.map(
-  //         (element) => element.stats.special_military_equip
-  //       ),
-
-  //       atgm_srbm_systems: data.data.records.map(
-  //         (element) => element.stats.atgm_srbm_systems
-  //       ),
-  //     };
-  //   });
-  // };
 
   const getData = (date, losses) => {
     setLosses(() => {
@@ -98,12 +36,18 @@ const ChartsHolder = () => {
       alignItems="center"
       justifyContent="center"
       paddingTop="1rem"
+      sx={{
+        width: {
+          xs: "300px",
+          sm: "500px",
+          md: "800px",
+          lg: "1100px",
+        },
+        height: "450px",
+      }}
     >
       <PaperWrapper elevation={4}>
-        <ChartsWrapper direction={"row"} spacing={4}>
-          <BarChart data={losses} />
-          <BarChart data={losses} />
-        </ChartsWrapper>
+        <BarChart data={losses} />
         <LossesSelector sendData={getData} />
       </PaperWrapper>
     </Box>

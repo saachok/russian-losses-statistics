@@ -20,7 +20,18 @@ const MonthChanger = (props) => {
   };
 
   return (
-    <Box sx={{ minWidth: 120, width: 220, marginTop: "8px" }}>
+    <Box
+      sx={{
+        width: {
+          xs: "90px",
+          sm: "120px",
+          md: "150px",
+          lg: "180px",
+          xl: "210px",
+        },
+        marginTop: "8px",
+      }}
+    >
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Month</InputLabel>
         <Select
