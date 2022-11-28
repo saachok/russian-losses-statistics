@@ -9,11 +9,11 @@ const PaperWrapper = styled(Paper)({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  width: "inherit",
+  height: "inherit",
   backgroundColor: "#d8fcac",
   padding: "1rem",
 });
-
-const ChartsWrapper = styled(Stack)({});
 
 const ChartsHolder = () => {
   const [losses, setLosses] = useState(null);
@@ -98,12 +98,13 @@ const ChartsHolder = () => {
       alignItems="center"
       justifyContent="center"
       paddingTop="1rem"
+      sx={{
+        width: "900px",
+        height: "300px",
+      }}
     >
       <PaperWrapper elevation={4}>
-        <ChartsWrapper direction={"row"} spacing={4}>
-          <BarChart data={losses} />
-          <BarChart data={losses} />
-        </ChartsWrapper>
+        <BarChart data={losses} />
         <LossesSelector sendData={getData} />
       </PaperWrapper>
     </Box>
