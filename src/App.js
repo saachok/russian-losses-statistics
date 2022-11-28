@@ -1,8 +1,6 @@
-import { Container } from "@mui/material";
-
 import Header from "./components/Header";
 import ChartsHolder from "./components/chartsHolder/ChartsHolder";
-import { createTheme, ThemeProvider } from "@mui/material";
+import { Container, createTheme, ThemeProvider } from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -19,11 +17,16 @@ function App() {
         maxWidth="false"
         disableGutters
         sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+
           height: "100vh",
           margin: 0,
           padding: 0,
-          overflow: "hidden",
           backgroundColor: "#e0ffbb",
+
+          overflow: "hidden",
         }}
       >
         <Header />

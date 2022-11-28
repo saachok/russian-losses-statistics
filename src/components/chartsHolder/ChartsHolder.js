@@ -1,9 +1,19 @@
-import { Box } from "@mui/material";
+import { Box, styled, Paper, Stack } from "@mui/material";
 import { useState, useEffect } from "react";
 import React from "react";
 
 import BarChart from "./charts/BarChart";
 import LossesSelector from "./LossesSelector";
+
+const PaperWrapper = styled(Paper)({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  backgroundColor: "#d8fcac",
+  padding: "1rem",
+});
+
+const ChartsWrapper = styled(Stack)({});
 
 const ChartsHolder = () => {
   const [losses, setLosses] = useState(null);
@@ -85,14 +95,17 @@ const ChartsHolder = () => {
   return (
     <Box
       display="flex"
-      flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      width={"100wv"}
-      paddingTop={"1rem"}
+      paddingTop="1rem"
     >
-      <BarChart data={losses} />
-      <LossesSelector sendData={getData} />
+      <PaperWrapper elevation={4}>
+        <ChartsWrapper direction={"row"} spacing={4}>
+          <BarChart data={losses} />
+          <BarChart data={losses} />
+        </ChartsWrapper>
+        <LossesSelector sendData={getData} />
+      </PaperWrapper>
     </Box>
   );
 };
