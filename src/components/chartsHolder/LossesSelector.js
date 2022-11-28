@@ -76,13 +76,7 @@ const LossesSelector = (props) => {
   };
 
   return (
-    <Box
-      display="flex"
-      paddingLeft="2rem"
-      justifyContent="start"
-      alignItems="center"
-      gap="1rem"
-    >
+    <Box display="flex" justifyContent="start" alignItems="center" gap="1rem">
       {error && (
         <ErrorModal
           isOpen={!!error}
