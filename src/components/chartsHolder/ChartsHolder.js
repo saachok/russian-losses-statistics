@@ -95,8 +95,6 @@ const ChartsHolder = () => {
   return (
     <Box
       display="flex"
-      // flexDirection="column"
-      // width="100wv"
       alignItems="center"
       justifyContent="center"
       paddingTop="1rem"
