@@ -1,8 +1,9 @@
 import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import MonthChanger from "./inputChangers/MonthChanger";
+// import MonthChanger from "./inputChangers/MonthChanger";
 import LossChanger from "./inputChangers/LossChanger";
 import ErrorModal from "../UI/ErrorModal";
+import StaticDateRangePickerDemo from "./inputChangers/DateRangePicker";
 
 const LossesSelector = (props) => {
   const [month, setMonth] = useState("");
@@ -86,7 +87,8 @@ const LossesSelector = (props) => {
           }}
         />
       )}
-      <MonthChanger getMonth={setMonthState} />
+      {/* <MonthChanger getMonth={setMonthState} /> */}
+      <StaticDateRangePickerDemo />
       <LossChanger getLoss={setLossState} />
     </Box>
   );
