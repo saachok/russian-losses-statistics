@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 // import MonthChanger from "./inputChangers/MonthChanger";
 import LossChanger from "./inputChangers/LossChanger";
 import ErrorModal from "../UI/ErrorModal";
-import StaticDateRangePickerDemo from "./inputChangers/DateRangePicker";
+import DateRangePickerDemo from "./inputChangers/DateRangePicker";
 
 const LossesSelector = (props) => {
   const [month, setMonth] = useState("");
@@ -88,7 +88,7 @@ const LossesSelector = (props) => {
         />
       )}
       {/* <MonthChanger getMonth={setMonthState} /> */}
-      <StaticDateRangePickerDemo />
+      <DateRangePickerDemo />
       <LossChanger getLoss={setLossState} />
     </Box>
   );
