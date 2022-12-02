@@ -54,7 +54,7 @@ const DateRangePickerDemo = (props) => {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateRangePicker
         displayStaticWrapperAs="desktop"
-        minDate={new Date("2022-02-24")}
+        minDate={new Date("2022-02-27")}
         shouldDisableDate={(date) => disableOutOfRange(date)}
         disableFuture
         value={dates}

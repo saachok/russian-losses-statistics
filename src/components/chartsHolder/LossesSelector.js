@@ -16,7 +16,7 @@ const LossesSelector = (props) => {
   }, [dateRange.startDate]);
 
   const calcCurrentAPI = () => {
-    const firstDayMilliseconds = new Date("2022-02-24");
+    const firstDayMilliseconds = new Date("2022-02-27");
     // .toISOString()
     // .split("T")[0];
     const offsetDay = millisecondsToDays(
@@ -31,7 +31,7 @@ const LossesSelector = (props) => {
       "dateRange.startDate.toISOString(): ",
       new Date(dateRange.startDate).toISOString()
     );
-    console.log("offsetDay: ", offsetDay);
+    console.log("offsetDay: ", Math.round(offsetDay));
   };
 
   // const minDateMilliseconds = new Date("2022-02-24").getTime();
