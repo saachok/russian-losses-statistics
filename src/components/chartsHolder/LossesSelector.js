@@ -4,31 +4,34 @@ import React, { useEffect, useState } from "react";
 import LossChanger from "./inputChangers/LossChanger";
 import ErrorModal from "../UI/ErrorModal";
 import DateRangePickerDemo from "./inputChangers/DateRangePicker";
+import { millisecondsToDays } from "../../utils.js";
 
 const LossesSelector = (props) => {
   const [dateRange, setDateRange] = useState({ startDate: null, range: null });
   const [loss, setLoss] = useState("");
   const [error, setError] = useState(false);
 
-  const millisecondsToDays = (milliseconds) => {
-    return milliseconds / 1000 / 24 / 60 / 60;
-  };
-
   useEffect(() => {
     calcCurrentAPI();
   }, [dateRange.startDate]);
 
   const calcCurrentAPI = () => {
-    const firstDayMilliseconds = new Date("2022-02-24")
-      .toISOString()
-      .split("T")[0];
-    // const offsetDay = millisecondsToDays(
-    //   dateRange.startDate - firstDayMilliseconds
-    // );
+    const firstDayMilliseconds = new Date("2022-02-24");
+    // .toISOString()
+    // .split("T")[0];
+    const offsetDay = millisecondsToDays(
+      dateRange.startDate - firstDayMilliseconds
+    );
+
+    console.log("range: ", dateRange.range);
 
     console.log("firstDayMilliseconds: ", firstDayMilliseconds);
     console.log("dateRange.startDate: ", dateRange.startDate);
-    // console.log("offsetDay: ", offsetDay);
+    console.log(
+      "dateRange.startDate.toISOString(): ",
+      new Date(dateRange.startDate).toISOString()
+    );
+    console.log("offsetDay: ", offsetDay);
   };
 
   // const minDateMilliseconds = new Date("2022-02-24").getTime();
