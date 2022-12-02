@@ -6,6 +6,23 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
+const LOSSES_MAP = {
+  personnel_units: "Personnel units",
+  tanks: "Tanks",
+  armoured_fighting_vehicles: "Armoured flighting vehicles",
+  artillery_systems: "Artillery systems",
+  mlrs: "MLRS",
+  aa_warfare_systems: "AA warfare systems",
+  planes: "Planes",
+  helicopters: "Helicopters",
+  vehicles_fuel_tanks: "Vehicles and fuel tanks",
+  warships_cutters: "Warships/cutters",
+  cruise_missiles: "Cruise missiles",
+  uav_systems: "UAV systems",
+  special_military_equip: "Special military equipment",
+  atgm_srbm_systems: "ATGM/SRBM systems",
+};
+
 const LossChanger = (props) => {
   const [loss, setMonth] = React.useState("");
 
@@ -41,26 +58,11 @@ const LossChanger = (props) => {
           label="Loss"
           onChange={handleChange}
         >
-          <MenuItem value={"personnel_units"}>Personnel units</MenuItem>
-          <MenuItem value={"tanks"}>Tanks</MenuItem>
-          <MenuItem value={"armoured_fighting_vehicles"}>
-            Armoured flighting vehicles
-          </MenuItem>
-          <MenuItem value={"artillery_systems"}>Artillery systems</MenuItem>
-          <MenuItem value={"mlrs"}>MLRS</MenuItem>
-          <MenuItem value={"aa_warfare_systems"}>AA warfare systems</MenuItem>
-          <MenuItem value={"planes"}>Planes</MenuItem>
-          <MenuItem value={"helicopters"}>Helicopters</MenuItem>
-          <MenuItem value={"vehicles_fuel_tanks"}>
-            Vehicles and fuel tanks
-          </MenuItem>
-          <MenuItem value={"warships_cutters"}>Warships/cutters</MenuItem>
-          <MenuItem value={"cruise_missiles"}>Cruise missiles</MenuItem>
-          <MenuItem value={"uav_systems"}>UAV systems</MenuItem>
-          <MenuItem value={"special_military_equip"}>
-            Special military equipment
-          </MenuItem>
-          <MenuItem value={"atgm_srbm_systems"}>ATGM/SRBM systems</MenuItem>
+          {Object.entries(LOSSES_MAP).map((param) => (
+            <MenuItem key={param[0]} value={param[0]}>
+              {param[1]}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>
