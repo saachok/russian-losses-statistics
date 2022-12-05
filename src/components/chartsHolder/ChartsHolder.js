@@ -22,9 +22,10 @@ const ChartsHolder = () => {
     if (losses === null) {
       return;
     }
+    console.log("losses: ", losses);
   }, [losses]);
 
-  const getData = (date, losses) => {
+  const getData = ({ date, losses }) => {
     setLosses(() => {
       return { date, losses };
     });
@@ -47,7 +48,7 @@ const ChartsHolder = () => {
       }}
     >
       <PaperWrapper elevation={4}>
-        {/* <BarChart data={losses} /> */}
+        <BarChart data={losses} />
         <LossesInputs sendData={getData} />
       </PaperWrapper>
     </Box>

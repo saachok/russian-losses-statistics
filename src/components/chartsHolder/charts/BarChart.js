@@ -3,17 +3,12 @@ import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 import { LOSSES_MAP } from "./../../../constants";
 
-// Format of data from props that should be
-// {
-//   date: ['1', '2', '3', '4'],
-//   losses: {
-//     tanks: [10, 12, 45, 56],
-//     planes: [2, 5, 6, 8]
-//   }
-// }
-
 const BarChart = ({ data }) => {
-  const lossTitle = LOSSES_MAP[data.losses.title];
+  if (data === null) {
+    return;
+  }
+
+  const lossTitle = LOSSES_MAP[data.losses.planes];
 
   return (
     <div
@@ -29,7 +24,7 @@ const BarChart = ({ data }) => {
           datasets: [
             {
               label: lossTitle,
-              data: data.losses.amount,
+              data: data.losses.planes,
               backgroundColor: "rgba(104, 159, 56, 0.6)",
               borderColor: "rgba(72, 111, 39, 1)",
               borderWidth: 1,

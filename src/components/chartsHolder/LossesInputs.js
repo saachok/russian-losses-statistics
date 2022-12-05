@@ -7,45 +7,89 @@ import DateRangePickerDemo from "./inputChangers/DateRangePicker";
 import { millisecondsToDays, getDateRangeLength } from "../../utils.js";
 import { DATE_2022_02_27 } from "../../constants";
 
-//         range: getDateRangeLength(dates[1]["$d"], dates[0]["$d"]),
-
 const LossesSelector = ({ sendData }) => {
   const [dateRange, setDateRange] = useState({ dateFrom: null, dateTo: null });
   const [apiParams, setApiParams] = useState({ offset: null, limit: null });
   const [loss, setLoss] = useState("");
+  const [losses, setLosses] = useState({ date: [], losses: {} });
   const [error, setError] = useState(false);
+  console.log(losses);
 
   useEffect(() => {
-    if (dateRange.dateFrom == null) {
-      return;
+    if (dateRange.dateFrom !== null && dateRange.dateTo !== null) {
+      fetchAPI(getValidAPI(dateRange.dateFrom, dateRange.dateTo));
+    } else {
+      console.log("dateRange.dateFrom == null && dateRange.dateTo == null");
     }
-    calcValidAPI();
-    fetchAPI();
-  }, [dateRange.dateFrom]);
+  }, [dateRange]);
 
-  const fetchAPI = async () => {
-    const response = await fetch(
-      `https://russianwarship.rip/api/v1/statistics?offset=${apiParams.offset}&limit=${apiParams.limit}`
-    );
-
+  const fetchAPI = async (API) => {
+    const response = await fetch(API);
     const data = await response.json();
 
-    console.log(data);
+    // console.log(data);
+
+    setLosses(() => {
+      return {
+        date: data.data.records.map((elem) => elem.date),
+        losses: {
+          personnel_units: data.data.records.map(
+            (elem) => elem.stats.personnel_units
+          ),
+          tanks: data.data.records.map((elem) => elem.stats.tanks),
+          armoured_fighting_vehicles: data.data.records.map(
+            (elem) => elem.stats.armoured_fighting_vehicles
+          ),
+          artillery_systems: data.data.records.map((elem) => elem.stats.tanks),
+          mlrs: data.data.records.map((elem) => elem.stats.mlrs),
+          aa_warfare_systems: data.data.records.map(
+            (elem) => elem.stats.aa_warfare_systems
+          ),
+          planes: data.data.records.map((elem) => elem.stats.planes),
+          helicopters: data.data.records.map((elem) => elem.stats.helicopters),
+          vehicles_fuel_tanks: data.data.records.map(
+            (elem) => elem.stats.vehicles_fuel_tanks
+          ),
+          warships_cutters: data.data.records.map(
+            (elem) => elem.stats.warships_cutters
+          ),
+          cruise_missiles: data.data.records.map(
+            (elem) => elem.stats.cruise_missiles
+          ),
+          uav_systems: data.data.records.map((elem) => elem.stats.uav_systems),
+          special_military_equip: data.data.records.map(
+            (elem) => elem.stats.special_military_equip
+          ),
+          atgm_srbm_systems: data.data.records.map(
+            (elem) => elem.stats.atgm_srbm_systems
+          ),
+        },
+      };
+    });
+
+    sendData(losses);
+
+    // Format of data from props that should be
+    // {
+    //   date: ['1', '2', '3', '4'],
+    //   losses: {
+    //     tanks: [10, 12, 45, 56],
+    //     planes: [2, 5, 6, 8]
+    //   }
+    // }
   };
 
-  const calcValidAPI = () => {
+  const getValidAPI = (dateFrom, dateTo) => {
     const selectedDate =
       dateRange.dateFrom.getTime() -
       dateRange.dateFrom.getTimezoneOffset() * 60000;
 
-    setApiParams(() => {
-      return {
-        offset:
-          // +1 for correct calculation of offset to API
-          millisecondsToDays(selectedDate - DATE_2022_02_27.getTime()) + 1,
-        limit: getDateRangeLength(dateRange.dateTo, dateRange.dateFrom),
-      };
-    });
+    // +1 for correct calculation of offset to API
+    const offset =
+      millisecondsToDays(selectedDate - DATE_2022_02_27.getTime()) + 1;
+    const limit = getDateRangeLength(dateRange.dateTo, dateRange.dateFrom);
+
+    return `https://russianwarship.rip/api/v1/statistics?offset=${offset}&limit=${limit}`;
   };
 
   const setLossState = (loss) => {
