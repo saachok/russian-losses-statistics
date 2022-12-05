@@ -1,3 +1,5 @@
+export const DATE_2022_02_27 = new Date("2022-02-27");
+
 export const MAX_AVAILABLE_DAYS_RANGE = 50;
 
 export const LOSSES_MAP = {

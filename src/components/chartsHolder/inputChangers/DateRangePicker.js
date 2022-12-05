@@ -14,13 +14,13 @@ const DateRangePickerDemo = ({ getDateRange }) => {
   useEffect(() => {
     if (dates[0] !== null && dates[1] !== null) {
       getDateRange({
-        startDate: dates[0]["$d"].getTime(),
-        range: getDateRangeLength(dates[1]["$d"], dates[0]["$d"]),
+        dateFrom: dates[0]["$d"],
+        dateTo: dates[1]["$d"],
       });
     }
-  }, [dates[0]]);
+  }, [dates[0], dates[1]]);
 
-  console.log("dates", dates);
+  // console.log("dates", dates);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>

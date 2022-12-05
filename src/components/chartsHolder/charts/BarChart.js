@@ -3,71 +3,16 @@ import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 import { LOSSES_MAP } from "./../../../constants";
 
-const initialState = {
-  date: [],
-  losses: [],
-};
+// Format of data from props that should be
+// {
+//   date: ['1', '2', '3', '4'],
+//   losses: {
+//     tanks: [10, 12, 45, 56],
+//     planes: [2, 5, 6, 8]
+//   }
+// }
 
 const BarChart = ({ data }) => {
-  // const [losses, setLosses] = useState(initialState);
-  // const [lossTitle, setLossTitle] = useState(null);
-
-  // useEffect(() => {
-  //   if (data) {
-  //     setLosses(() => data);
-  //   }
-  // }, [data]);
-
-  // useEffect(() => {
-  //   switch (losses.losses.title) {
-  //     case "aa_warfare_systems":
-  //       setLossTitle("AA warfare systems");
-  //       break;
-  //     case "armoured_fighting_vehicles":
-  //       setLossTitle("Armoured fighting vehicles");
-  //       break;
-  //     case "artillery_systems":
-  //       setLossTitle("Artillery systems");
-  //       break;
-  //     case "atgm_srbm_systems":
-  //       setLossTitle("ATGM/SRBM systems");
-  //       break;
-  //     case "cruise_missiles":
-  //       setLossTitle("Cruise missiles");
-  //       break;
-  //     case "helicopters":
-  //       setLossTitle("Helicopters");
-  //       break;
-  //     case "mlrs":
-  //       setLossTitle("MLRS");
-  //       break;
-  //     case "personnel_units":
-  //       setLossTitle("Personnel units");
-  //       break;
-  //     case "planes":
-  //       setLossTitle("Planes");
-  //       break;
-  //     case "special_military_equip":
-  //       setLossTitle("Special military equipment");
-  //       break;
-  //     case "tanks":
-  //       setLossTitle("Tanks");
-  //       break;
-  //     case "uav_systems":
-  //       setLossTitle("UAV systems");
-  //       break;
-  //     case "vehicles_fuel_tanks":
-  //       setLossTitle("Vehicles fuel tanks");
-  //       break;
-  //     case "warships_cutters":
-  //       setLossTitle("Warships cutters");
-  //       break;
-  //     case "undefined":
-  //       setLossTitle("Choose loss");
-  //       break;
-  //   }
-  // }, [losses.losses.title]);
-
   const lossTitle = LOSSES_MAP[data.losses.title];
 
   return (

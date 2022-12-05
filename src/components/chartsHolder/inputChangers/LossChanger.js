@@ -7,17 +7,17 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { LOSSES_MAP } from "./../../../constants";
 
-const LossChanger = (props) => {
-  const [loss, setMonth] = React.useState("");
+const LossChanger = ({ getLoss }) => {
+  const [loss, setLoss] = React.useState("");
 
   useEffect(() => {
     if (loss !== "") {
-      props.getLoss(loss);
+      getLoss(loss);
     }
-  }, [loss, props]);
+  }, [loss]);
 
   const handleChange = (event) => {
-    setMonth(event.target.value);
+    setLoss(event.target.value);
   };
 
   return (
