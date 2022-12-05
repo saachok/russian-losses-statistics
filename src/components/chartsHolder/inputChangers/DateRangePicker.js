@@ -6,56 +6,28 @@ import Box from "@mui/material/Box";
 import { LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import { DateRangePicker } from "@mui/x-date-pickers-pro";
+import { disableOutOfRange, getDateRangeLength } from "./../../../utils";
 
-import { differenceInDays } from "date-fns";
-
-const DateRangePickerDemo = (props) => {
+const DateRangePickerDemo = ({ getDateRange }) => {
   const [dates, setDates] = React.useState([null, null]);
-
-  const daysToMilliseconds = (days) => {
-    return days * 24 * 60 * 60 * 1000;
-  };
 
   useEffect(() => {
     if (dates[0] !== null && dates[1] !== null) {
-      props.getDateRange({
+      getDateRange({
         startDate: dates[0]["$d"].getTime(),
         range: getDateRangeLength(dates[1]["$d"], dates[0]["$d"]),
       });
     }
-  }, [props, dates[0]]);
+  }, [dates[0]]);
 
-  // refactor this block of code
-  const disableOutOfRange = (date) => {
-    let currentDateToMilliseconds = date["$d"].getTime();
-
-    if (dates[0] !== null) {
-      let topBorderDateMilliseconds =
-        dates[0]["$d"].getTime() + daysToMilliseconds(50);
-
-      if (currentDateToMilliseconds >= topBorderDateMilliseconds) {
-        return true;
-      } else if (dates[1] !== null) {
-        let botBorderDateMilliseconds =
-          dates[1]["$d"].getTime() - daysToMilliseconds(50);
-
-        if (currentDateToMilliseconds <= botBorderDateMilliseconds) {
-          return true;
-        } else return false;
-      }
-    }
-  };
-
-  const getDateRangeLength = (end, start) => {
-    return 1 + differenceInDays(end, start);
-  };
+  console.log("dates", dates);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateRangePicker
         displayStaticWrapperAs="desktop"
         minDate={new Date("2022-02-27")}
-        shouldDisableDate={(date) => disableOutOfRange(date)}
+        shouldDisableDate={(date) => disableOutOfRange(date, dates)}
         disableFuture
         value={dates}
         onChange={(newValue) => {
