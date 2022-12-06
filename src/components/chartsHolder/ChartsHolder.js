@@ -22,7 +22,7 @@ const ChartsHolder = () => {
     if (losses === null) {
       return;
     }
-    console.log("losses: ", losses);
+    // console.log("losses: ", losses);
   }, [losses]);
 
   const getData = ({ date, losses }) => {

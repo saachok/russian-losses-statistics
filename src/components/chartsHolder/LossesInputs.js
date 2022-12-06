@@ -13,7 +13,7 @@ const LossesSelector = ({ sendData }) => {
   const [loss, setLoss] = useState("");
   const [losses, setLosses] = useState({ date: [], losses: {} });
   const [error, setError] = useState(false);
-  console.log(losses);
+  // console.log(losses);
 
   useEffect(() => {
     if (dateRange.dateFrom !== null && dateRange.dateTo !== null) {

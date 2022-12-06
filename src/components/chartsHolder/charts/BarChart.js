@@ -5,10 +5,14 @@ import { LOSSES_MAP } from "./../../../constants";
 
 const BarChart = ({ data }) => {
   if (data === null) {
-    return;
+    data = {
+      date: [],
+      losses: {},
+    };
   }
 
-  const lossTitle = LOSSES_MAP[data.losses.planes];
+  // const lossTitle = LOSSES_MAP[data.losses.planes];
+  const lossTitle = "constant lossTitle";
 
   return (
     <div
