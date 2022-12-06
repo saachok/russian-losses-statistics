@@ -5,7 +5,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { LOSSES_MAP } from "./../../../constants";
+import { LOSSES_MAP } from "../../../utils/constants";
 
 const LossChanger = ({ getLoss }) => {
   const [loss, setLoss] = React.useState("");

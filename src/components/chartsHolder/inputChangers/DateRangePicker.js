@@ -6,21 +6,19 @@ import Box from "@mui/material/Box";
 import { LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import { DateRangePicker } from "@mui/x-date-pickers-pro";
-import { disableOutOfRange } from "./../../../utils";
+import { disableOutOfRange } from "../../../utils/dateFunctions";
 
-const DateRangePickerDemo = ({ getDateRange }) => {
+const DateRangePickerDemo = ({ setDateRangeState }) => {
   const [dates, setDates] = React.useState([null, null]);
 
   useEffect(() => {
     if (dates[0] !== null && dates[1] !== null) {
-      getDateRange({
+      setDateRangeState({
         dateFrom: dates[0]["$d"],
         dateTo: dates[1]["$d"],
       });
     }
   }, [dates[0], dates[1]]);
-
-  // console.log("dates", dates);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
-import { LOSSES_MAP } from "./../../../constants";
+import { LOSSES_MAP } from "../../../utils/constants";
 
 const BarChart = ({ data }) => {
   if (data === null) {
@@ -11,7 +11,6 @@ const BarChart = ({ data }) => {
     };
   }
 
-  // const lossTitle = LOSSES_MAP[data.losses.planes];
   const lossTitle = "constant lossTitle";
 
   return (
