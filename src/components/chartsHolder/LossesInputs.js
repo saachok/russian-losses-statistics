@@ -11,7 +11,6 @@ const LossesSelector = ({ sendData }) => {
   const [dateRange, setDateRange] = useState({ dateFrom: null, dateTo: null });
   const [apiParams, setApiParams] = useState({ offset: null, limit: null });
   const [loss, setLoss] = useState("");
-  const [losses, setLosses] = useState({ date: [], losses: {} });
   const [error, setError] = useState(false);
   // console.log(losses);
 
@@ -29,7 +28,7 @@ const LossesSelector = ({ sendData }) => {
 
     // console.log(data);
 
-    setLosses(() => {
+    const formatData = (data) => {
       return {
         date: data.data.records.map((elem) => elem.date),
         losses: {
@@ -65,7 +64,9 @@ const LossesSelector = ({ sendData }) => {
           ),
         },
       };
-    });
+    };
+
+    const losses = formatData(data);
 
     sendData(losses);
 

@@ -26,9 +26,7 @@ const ChartsHolder = () => {
   }, [losses]);
 
   const getData = ({ date, losses }) => {
-    setLosses(() => {
-      return { date, losses };
-    });
+    setLosses({ date, losses });
   };
 
   return (
