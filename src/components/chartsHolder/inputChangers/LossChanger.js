@@ -6,45 +6,54 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { LOSSES_MAP } from "../../../utils/constants";
+import { Checkbox, ListItemText } from "@mui/material";
 
 const LossChanger = ({ getLoss }) => {
-  const [loss, setLoss] = React.useState("");
+  const [loss, setLoss] = React.useState([]);
 
   useEffect(() => {
-    if (loss !== "") {
-      getLoss(loss);
+    if (!loss.length) {
+      return;
     }
+    getLoss(loss);
   }, [loss]);
 
   const handleChange = (event) => {
-    setLoss(event.target.value);
+    const {
+      target: { value },
+    } = event;
+    setLoss(typeof value === "string" ? value.split(",") : value);
   };
 
   return (
     <Box
       sx={{
-        width: {
-          xs: "90px",
-          sm: "120px",
-          md: "150px",
-          lg: "180px",
-          xl: "210px",
-        },
+        width: "250px",
+        // width: {
+        //   xs: "90px",
+        //   sm: "120px",
+        //   md: "150px",
+        //   lg: "180px",
+        //   xl: "210px",
+        // },
         marginTop: "8px",
       }}
     >
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Loss</InputLabel>
+        <InputLabel id="select-label">Loss</InputLabel>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          labelId="select-label"
+          id="select"
+          multiple
           value={loss}
-          label="Loss"
           onChange={handleChange}
+          renderValue={(selected) => selected.join(", ")}
+          label="Loss"
         >
           {Object.entries(LOSSES_MAP).map((param) => (
-            <MenuItem key={param[0]} value={param[0]}>
-              {param[1]}
+            <MenuItem key={param[1]} value={param[1]}>
+              <Checkbox checked={loss.indexOf(param[1]) > -1} />
+              <ListItemText primary={param[1]} />
             </MenuItem>
           ))}
         </Select>

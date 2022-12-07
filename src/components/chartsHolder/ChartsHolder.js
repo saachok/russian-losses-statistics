@@ -17,16 +17,26 @@ const PaperWrapper = styled(Paper)({
 
 const ChartsHolder = () => {
   const [losses, setLosses] = useState(null);
+  const [identifiers, setIdentifiers] = useState([]);
 
   useEffect(() => {
     if (losses === null) {
       return;
     }
+    // console.log("losses: ", losses);
   }, [losses]);
 
   const getData = ({ date, losses }) => {
     setLosses({ date, losses });
   };
+
+  const filterChartData = () => {
+    // filter losses .inculdes()
+  };
+
+  const chartData = filterChartData({ losses, identifiers });
+
+  console.log("identifiers: ", identifiers);
 
   return (
     <Box
@@ -46,7 +56,7 @@ const ChartsHolder = () => {
     >
       <PaperWrapper elevation={4}>
         <BarChart data={losses} />
-        <LossesInputs sendData={getData} />
+        <LossesInputs sendData={getData} setIdentifiers={setIdentifiers} />
       </PaperWrapper>
     </Box>
   );

@@ -5,9 +5,8 @@ import ErrorModal from "../UI/ErrorModal";
 import DateRangePickerDemo from "./inputChangers/DateRangePicker";
 import { formatData, getValidAPI } from "../../utils/dataFormatting";
 
-const LossesSelector = ({ sendData }) => {
+const LossesSelector = ({ sendData, setIdentifiers }) => {
   const [dateRange, setDateRange] = useState({ dateFrom: null, dateTo: null });
-  const [loss, setLoss] = useState("");
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -22,11 +21,8 @@ const LossesSelector = ({ sendData }) => {
     const response = await fetch(API);
     const data = await response.json();
     const losses = formatData(data);
-    sendData(losses);
-  };
-
-  const setLossState = (loss) => {
-    setLoss(() => loss);
+    console.log("losses:", losses);
+    sendData({ losses });
   };
 
   const setDateRangeState = ({ dateFrom, dateTo }) => {
@@ -48,7 +44,7 @@ const LossesSelector = ({ sendData }) => {
         />
       )}
       <DateRangePickerDemo setDateRangeState={setDateRangeState} />
-      <LossChanger getLoss={setLossState} />
+      <LossChanger getLoss={setIdentifiers} />
     </Box>
   );
 };

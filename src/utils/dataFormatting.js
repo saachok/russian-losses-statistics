@@ -15,40 +15,71 @@ export const getValidAPI = (dateFrom, dateTo) => {
 
 // Need to refactory this large formatData func
 // Make it dynamic instead of static
+
 export const formatData = (data) => {
   return {
     date: data.data.records.map((elem) => elem.date),
-    losses: {
-      personnel_units: data.data.records.map(
-        (elem) => elem.stats.personnel_units
-      ),
-      tanks: data.data.records.map((elem) => elem.stats.tanks),
-      armoured_fighting_vehicles: data.data.records.map(
-        (elem) => elem.stats.armoured_fighting_vehicles
-      ),
-      artillery_systems: data.data.records.map((elem) => elem.stats.tanks),
-      mlrs: data.data.records.map((elem) => elem.stats.mlrs),
-      aa_warfare_systems: data.data.records.map(
-        (elem) => elem.stats.aa_warfare_systems
-      ),
-      planes: data.data.records.map((elem) => elem.stats.planes),
-      helicopters: data.data.records.map((elem) => elem.stats.helicopters),
-      vehicles_fuel_tanks: data.data.records.map(
-        (elem) => elem.stats.vehicles_fuel_tanks
-      ),
-      warships_cutters: data.data.records.map(
-        (elem) => elem.stats.warships_cutters
-      ),
-      cruise_missiles: data.data.records.map(
-        (elem) => elem.stats.cruise_missiles
-      ),
-      uav_systems: data.data.records.map((elem) => elem.stats.uav_systems),
-      special_military_equip: data.data.records.map(
-        (elem) => elem.stats.special_military_equip
-      ),
-      atgm_srbm_systems: data.data.records.map(
-        (elem) => elem.stats.atgm_srbm_systems
-      ),
-    },
+    losses: [
+      {
+        label: "Personnel units",
+        data: data.data.records.map((elem) => elem.stats.personnel_units),
+      },
+      {
+        label: "Tanks",
+        data: data.data.records.map((elem) => elem.stats.tanks),
+      },
+      {
+        label: "Armoured flighting vehicles",
+        data: data.data.records.map(
+          (elem) => elem.stats.armoured_fighting_vehicles
+        ),
+      },
+      {
+        label: "Artillery systems",
+        data: data.data.records.map((elem) => elem.stats.artillery_systems),
+      },
+      {
+        label: "MLRS",
+        data: data.data.records.map((elem) => elem.stats.mlrs),
+      },
+      {
+        label: "AA warfare systems",
+        data: data.data.records.map((elem) => elem.stats.aa_warfare_systems),
+      },
+      {
+        label: "Planes",
+        data: data.data.records.map((elem) => elem.stats.planes),
+      },
+      {
+        label: "Helicopters",
+        data: data.data.records.map((elem) => elem.stats.helicopters),
+      },
+      {
+        label: "Vehicles and fuel tanks",
+        data: data.data.records.map((elem) => elem.stats.vehicles_fuel_tanks),
+      },
+      {
+        label: "Warships/cutters",
+        data: data.data.records.map((elem) => elem.stats.warships_cutters),
+      },
+      {
+        label: "Cruise missiles",
+        data: data.data.records.map((elem) => elem.stats.cruise_missiles),
+      },
+      {
+        label: "UAV systems",
+        data: data.data.records.map((elem) => elem.stats.uav_systems),
+      },
+      {
+        label: "Special military equipment",
+        data: data.data.records.map(
+          (elem) => elem.stats.special_military_equip
+        ),
+      },
+      {
+        label: "ATGM/SRBM systems",
+        data: data.data.records.map((elem) => elem.stats.atgm_srbm_systems),
+      },
+    ],
   };
 };
