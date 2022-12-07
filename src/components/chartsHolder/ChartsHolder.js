@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 
 import BarChart from "./charts/BarChart";
-import LossesSelector from "./LossesSelector";
+import LossesInputs from "./LossesInputs";
 
 const PaperWrapper = styled(Paper)({
   display: "flex",
@@ -24,10 +24,8 @@ const ChartsHolder = () => {
     }
   }, [losses]);
 
-  const getData = (date, losses) => {
-    setLosses(() => {
-      return { date, losses };
-    });
+  const getData = ({ date, losses }) => {
+    setLosses({ date, losses });
   };
 
   return (
@@ -48,7 +46,7 @@ const ChartsHolder = () => {
     >
       <PaperWrapper elevation={4}>
         <BarChart data={losses} />
-        <LossesSelector sendData={getData} />
+        <LossesInputs sendData={getData} />
       </PaperWrapper>
     </Box>
   );
