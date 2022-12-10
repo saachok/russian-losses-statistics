@@ -18,13 +18,17 @@ const PaperWrapper = styled(Paper)({
 const ChartsHolder = () => {
   const [losses, setLosses] = useState(null);
   const [identifiers, setIdentifiers] = useState([]);
-  const [chartData, setChartData] = useState(null);
+  const [chartData, setChartData] = useState({
+    date: [],
+    losses: [{ label: "", data: [] }],
+  });
 
   useEffect(() => {
     if (losses === null) {
       return;
     }
     setChartData(filterChartData(losses, identifiers));
+    console.log("chartData: ", chartData);
   }, [losses, identifiers]);
 
   const filterChartData = (losses, identifiers) => {

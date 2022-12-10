@@ -3,13 +3,6 @@ import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 
 const BarChart = ({ data }) => {
-  if (data === null) {
-    data = {
-      date: [],
-      losses: [{ label: null, data: null }],
-    };
-  }
-
   const datasets = data.losses.map((elem) => {
     return {
       label: elem.label,
