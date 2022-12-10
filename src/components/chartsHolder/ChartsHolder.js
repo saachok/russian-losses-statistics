@@ -1,4 +1,4 @@
-import { Box, styled, Paper, Stack } from "@mui/material";
+import { Box, styled, Paper } from "@mui/material";
 import { useState, useEffect } from "react";
 import React from "react";
 
@@ -18,25 +18,21 @@ const PaperWrapper = styled(Paper)({
 const ChartsHolder = () => {
   const [losses, setLosses] = useState(null);
   const [identifiers, setIdentifiers] = useState([]);
+  const [chartData, setChartData] = useState(null);
 
   useEffect(() => {
     if (losses === null) {
       return;
     }
-    // console.log("losses: ", losses);
-  }, [losses]);
+    setChartData(filterChartData(losses, identifiers));
+  }, [losses, identifiers]);
 
-  const getData = ({ date, losses }) => {
-    setLosses({ date, losses });
+  const filterChartData = (losses, identifiers) => {
+    return {
+      date: losses.date,
+      losses: losses.losses.filter((elem) => identifiers.includes(elem.label)),
+    };
   };
-
-  const filterChartData = () => {
-    // filter losses .inculdes()
-  };
-
-  const chartData = filterChartData({ losses, identifiers });
-
-  console.log("identifiers: ", identifiers);
 
   return (
     <Box
@@ -55,8 +51,8 @@ const ChartsHolder = () => {
       }}
     >
       <PaperWrapper elevation={4}>
-        <BarChart data={losses} />
-        <LossesInputs sendData={getData} setIdentifiers={setIdentifiers} />
+        <BarChart data={chartData} />
+        <LossesInputs sendData={setLosses} setIdentifiers={setIdentifiers} />
       </PaperWrapper>
     </Box>
   );

@@ -21,8 +21,7 @@ const LossesSelector = ({ sendData, setIdentifiers }) => {
     const response = await fetch(API);
     const data = await response.json();
     const losses = formatData(data);
-    console.log("losses:", losses);
-    sendData({ losses });
+    sendData(losses);
   };
 
   const setDateRangeState = ({ dateFrom, dateTo }) => {

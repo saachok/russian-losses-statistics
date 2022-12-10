@@ -1,35 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
-import { LOSSES_MAP } from "../../../utils/constants";
-
-const DUMMY_LOSSES = {
-  date: ["1", "2", "3", "4", "5"],
-  losses: [
-    {
-      label: "Tanks",
-      data: [2, 4, 5, 7, 10],
-    },
-    {
-      label: "Planes",
-      data: [1, 5, 7, 7, 12],
-    },
-    {
-      label: "Helicopters",
-      data: [3, 5, 5, 9, 11],
-    },
-  ],
-};
 
 const BarChart = ({ data }) => {
-  // if (data === null) {
-  //   data = {
-  //     date: [],
-  //     losses: {},
-  //   };
-  // }
+  if (data === null) {
+    data = {
+      date: [],
+      losses: [{ label: null, data: null }],
+    };
+  }
 
-  const datasets = DUMMY_LOSSES.losses.map((elem) => {
+  const datasets = data.losses.map((elem) => {
     return {
       label: elem.label,
       data: elem.data,
@@ -49,14 +30,14 @@ const BarChart = ({ data }) => {
     >
       <Bar
         data={{
-          labels: DUMMY_LOSSES.date,
+          labels: data.date,
           datasets,
         }}
         options={{
           maintainAspectRatio: false,
           plugins: {
             legend: {
-              display: true,
+              display: data.date.length ? true : false,
             },
           },
         }}
