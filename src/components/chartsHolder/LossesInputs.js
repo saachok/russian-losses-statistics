@@ -32,7 +32,17 @@ const LossesSelector = ({ sendData, setIdentifiers }) => {
   };
 
   return (
-    <Box display="flex" justifyContent="start" alignItems="center" gap="1rem">
+    <Box
+      display="flex"
+      alignItems="start"
+      gap="1rem"
+      sx={{
+        marginLeft: {
+          xs: "2rem",
+          md: "0",
+        },
+      }}
+    >
       {error && (
         <ErrorModal
           isOpen={!!error}

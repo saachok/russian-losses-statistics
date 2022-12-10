@@ -26,19 +26,7 @@ const LossChanger = ({ getLoss }) => {
   };
 
   return (
-    <Box
-      sx={{
-        width: "250px",
-        // width: {
-        //   xs: "90px",
-        //   sm: "120px",
-        //   md: "150px",
-        //   lg: "180px",
-        //   xl: "210px",
-        // },
-        marginTop: "8px",
-      }}
-    >
+    <Box>
       <FormControl fullWidth>
         <InputLabel id="select-label">Loss</InputLabel>
         <Select
@@ -49,6 +37,16 @@ const LossChanger = ({ getLoss }) => {
           onChange={handleChange}
           renderValue={(selected) => selected.join(", ")}
           label="Loss"
+          sx={{
+            // backgroundColor: "black",
+            width: {
+              xs: "80px",
+              sm: "110px",
+              md: "140px",
+              lg: "170px",
+              xl: "200px",
+            },
+          }}
         >
           {Object.entries(LOSSES_MAP).map((param) => (
             <MenuItem key={param[1]} value={param[1]}>
