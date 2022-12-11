@@ -12,7 +12,7 @@ const Header = () => {
         justifyContent: "center",
       }}
     >
-      <Typography variant={"h5"} sx={{ p: 1.5 }}>
+      <Typography variant={"h5"} sx={{ p: 1 }}>
         Russian losses at war against Ukraine
       </Typography>
     </AppBar>
