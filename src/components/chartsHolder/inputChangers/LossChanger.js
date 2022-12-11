@@ -44,14 +44,14 @@ const LossChanger = ({ getLoss }) => {
               sm: "110px",
               md: "140px",
               lg: "170px",
-              xl: "200px",
+              // xl: "200px",
             },
           }}
         >
-          {Object.entries(LOSSES_MAP).map((param) => (
-            <MenuItem key={param[1]} value={param[1]}>
-              <Checkbox checked={loss.indexOf(param[1]) > -1} />
-              <ListItemText primary={param[1]} />
+          {Object.entries(LOSSES_MAP).map((elem) => (
+            <MenuItem key={elem[1].label} value={elem[1].label}>
+              <Checkbox checked={loss.indexOf(elem[1].label) > -1} />
+              <ListItemText primary={elem[1].label} />
             </MenuItem>
           ))}
         </Select>

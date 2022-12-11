@@ -7,8 +7,8 @@ const BarChart = ({ data }) => {
     return {
       label: elem.label,
       data: elem.data,
-      backgroundColor: "rgba(104, 159, 56, 0.6)",
-      borderColor: "rgba(72, 111, 39, 1)",
+      backgroundColor: elem.backgroundColor,
+      borderColor: elem.borderColor,
       borderWidth: 1,
     };
   });

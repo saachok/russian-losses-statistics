@@ -28,7 +28,7 @@ const ChartsHolder = () => {
       return;
     }
     setChartData(filterChartData(losses, identifiers));
-    console.log("chartData: ", chartData);
+    // console.log("chartData: ", chartData);
   }, [losses, identifiers]);
 
   const filterChartData = (losses, identifiers) => {
