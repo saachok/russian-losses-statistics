@@ -44,8 +44,7 @@ const InfoButton = () => {
         }}
       >
         <Typography variant="body2" sx={{ p: 1 }}>
-          Range of dates should be less then 50 and bigger then 0. (0 ≤ range ≤
-          50)
+          The interval must be less than 50 and bigger than 0. (1 ≤ range ≤ 50)
         </Typography>
       </Popover>
     </div>
