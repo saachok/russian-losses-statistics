@@ -33,8 +33,9 @@ const ChartsHolder = () => {
   return (
     <Box
       display="flex"
-      alignItems="center"
-      justifyContent="center"
+      // alignItems="center"
+      // justifyContent="center"
+
       paddingTop="1rem"
       sx={{
         width: {
