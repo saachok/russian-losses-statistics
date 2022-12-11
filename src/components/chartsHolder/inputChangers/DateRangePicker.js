@@ -33,11 +33,18 @@ const DateRangePickerDemo = ({ setDateRangeState }) => {
         }}
         renderInput={(startProps, endProps) => (
           <React.Fragment>
-            <TextField
-              {...startProps}
-              helperText="Range should be less then 50 (1 ≤ range ≤ 50)"
-            />
-            <Box sx={{ mx: 2 }}> to </Box>
+            <TextField {...startProps} />
+            <Box
+              sx={{
+                margin: {
+                  xs: "4px",
+                  sm: "6px",
+                  md: "8px",
+                },
+              }}
+            >
+              to
+            </Box>
             <TextField {...endProps} />
           </React.Fragment>
         )}

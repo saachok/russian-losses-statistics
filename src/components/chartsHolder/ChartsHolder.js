@@ -1,9 +1,12 @@
-import { Box, styled, Paper, Stack } from "@mui/material";
-import { useState, useEffect } from "react";
 import React from "react";
+import { Box, styled, Paper } from "@mui/material";
+import { useState, useEffect } from "react";
 
 import BarChart from "./charts/BarChart";
 import LossesInputs from "./LossesInputs";
+
+import { INITIAL_CHART_DATA } from "../../utils/constants";
+import { filterChartData } from "../../utils/dataFormatting";
 
 const PaperWrapper = styled(Paper)({
   display: "flex",
@@ -17,22 +20,22 @@ const PaperWrapper = styled(Paper)({
 
 const ChartsHolder = () => {
   const [losses, setLosses] = useState(null);
+  const [identifiers, setIdentifiers] = useState([]);
+  const [chartData, setChartData] = useState(INITIAL_CHART_DATA);
 
   useEffect(() => {
     if (losses === null) {
       return;
     }
-  }, [losses]);
-
-  const getData = ({ date, losses }) => {
-    setLosses({ date, losses });
-  };
+    setChartData(filterChartData(losses, identifiers));
+  }, [losses, identifiers]);
 
   return (
     <Box
       display="flex"
-      alignItems="center"
-      justifyContent="center"
+      // alignItems="center"
+      // justifyContent="center"
+
       paddingTop="1rem"
       sx={{
         width: {
@@ -45,8 +48,8 @@ const ChartsHolder = () => {
       }}
     >
       <PaperWrapper elevation={4}>
-        <BarChart data={losses} />
-        <LossesInputs sendData={getData} />
+        <BarChart data={chartData} />
+        <LossesInputs sendData={setLosses} setIdentifiers={setIdentifiers} />
       </PaperWrapper>
     </Box>
   );

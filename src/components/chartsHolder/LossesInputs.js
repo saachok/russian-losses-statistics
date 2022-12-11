@@ -4,10 +4,10 @@ import LossChanger from "./inputChangers/LossChanger";
 import ErrorModal from "../UI/ErrorModal";
 import DateRangePickerDemo from "./inputChangers/DateRangePicker";
 import { formatData, getValidAPI } from "../../utils/dataFormatting";
+import InfoButton from "./inputChangers/InfoButton";
 
-const LossesSelector = ({ sendData }) => {
+const LossesSelector = ({ sendData, setIdentifiers }) => {
   const [dateRange, setDateRange] = useState({ dateFrom: null, dateTo: null });
-  const [loss, setLoss] = useState("");
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -25,10 +25,6 @@ const LossesSelector = ({ sendData }) => {
     sendData(losses);
   };
 
-  const setLossState = (loss) => {
-    setLoss(() => loss);
-  };
-
   const setDateRangeState = ({ dateFrom, dateTo }) => {
     setDateRange({
       dateFrom,
@@ -37,7 +33,7 @@ const LossesSelector = ({ sendData }) => {
   };
 
   return (
-    <Box display="flex" justifyContent="start" alignItems="center" gap="1rem">
+    <Box display="flex" alignItems="center" gap="0.5rem" marginTop="0.5rem">
       {error && (
         <ErrorModal
           isOpen={!!error}
@@ -47,8 +43,9 @@ const LossesSelector = ({ sendData }) => {
           }}
         />
       )}
+      <InfoButton />
       <DateRangePickerDemo setDateRangeState={setDateRangeState} />
-      <LossChanger getLoss={setLossState} />
+      <LossChanger getLoss={setIdentifiers} />
     </Box>
   );
 };
