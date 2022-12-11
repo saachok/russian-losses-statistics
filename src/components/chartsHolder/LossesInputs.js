@@ -36,6 +36,7 @@ const LossesSelector = ({ sendData, setIdentifiers }) => {
       display="flex"
       alignItems="start"
       gap="1rem"
+      marginTop="0.5rem"
       sx={{
         marginLeft: {
           xs: "2rem",
