@@ -1,5 +1,5 @@
 import { millisecondsToDays, getDateRangeLength } from "./dateFunctions";
-import { DATE_2022_02_27 } from "./constants";
+import { DATE_2022_02_27, INITIAL_CHART_DATA } from "./constants";
 
 export const getValidAPI = (dateFrom, dateTo) => {
   const selectedDate =
@@ -109,5 +109,14 @@ export const formatData = (data) => {
         orderdColor: "rgba(211, 52, 92, 1)",
       },
     ],
+  };
+};
+
+export const filterChartData = (losses, identifiers) => {
+  return {
+    date: losses.date,
+    losses: identifiers.length
+      ? losses.losses.filter((elem) => identifiers.includes(elem.label))
+      : INITIAL_CHART_DATA.losses,
   };
 };

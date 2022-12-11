@@ -2,6 +2,11 @@ export const DATE_2022_02_27 = new Date("2022-02-27");
 
 export const MAX_AVAILABLE_DAYS_RANGE = 50;
 
+export const INITIAL_CHART_DATA = {
+  date: [],
+  losses: [{ label: "", data: [] }],
+};
+
 export const LOSSES_MAP = {
   personnel_units: {
     label: "Personnel units",

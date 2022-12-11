@@ -1,9 +1,12 @@
+import React from "react";
 import { Box, styled, Paper } from "@mui/material";
 import { useState, useEffect } from "react";
-import React from "react";
 
 import BarChart from "./charts/BarChart";
 import LossesInputs from "./LossesInputs";
+
+import { INITIAL_CHART_DATA } from "../../utils/constants";
+import { filterChartData } from "../../utils/dataFormatting";
 
 const PaperWrapper = styled(Paper)({
   display: "flex",
@@ -18,25 +21,14 @@ const PaperWrapper = styled(Paper)({
 const ChartsHolder = () => {
   const [losses, setLosses] = useState(null);
   const [identifiers, setIdentifiers] = useState([]);
-  const [chartData, setChartData] = useState({
-    date: [],
-    losses: [{ label: "", data: [] }],
-  });
+  const [chartData, setChartData] = useState(INITIAL_CHART_DATA);
 
   useEffect(() => {
     if (losses === null) {
       return;
     }
     setChartData(filterChartData(losses, identifiers));
-    // console.log("chartData: ", chartData);
   }, [losses, identifiers]);
-
-  const filterChartData = (losses, identifiers) => {
-    return {
-      date: losses.date,
-      losses: losses.losses.filter((elem) => identifiers.includes(elem.label)),
-    };
-  };
 
   return (
     <Box

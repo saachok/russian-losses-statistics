@@ -12,9 +12,6 @@ const LossChanger = ({ getLoss }) => {
   const [loss, setLoss] = React.useState([]);
 
   useEffect(() => {
-    // if (!loss.length) {
-    //   return;
-    // }
     getLoss(loss);
   }, [loss]);
 

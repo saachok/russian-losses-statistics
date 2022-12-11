@@ -30,7 +30,7 @@ const BarChart = ({ data }) => {
           maintainAspectRatio: false,
           plugins: {
             legend: {
-              display: data.date.length ? true : false,
+              display: data.losses[0].label ? true : false,
             },
           },
         }}
