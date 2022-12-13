@@ -13,16 +13,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 const ErrorModal = (props) => {
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  useEffect(() => {
-    setIsOpen(() => {
-      return props.isOpen;
-    });
-  }, [props]);
+  const { isOpen, errorText, onClose } = props;
 
   const handleClose = () => {
-    props.onClose();
+    onClose();
   };
 
   return (
@@ -37,7 +31,7 @@ const ErrorModal = (props) => {
         <DialogTitle>Whoops! Something went wrong.</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            {props.errorText}
+            {errorText}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

@@ -18,10 +18,14 @@ const LossesSelector = ({ sendData, setIdentifiers }) => {
   }, [dateRange]);
 
   const fetchAPI = async (API) => {
-    const response = await fetch(API);
-    const data = await response.json();
-    const losses = formatData(data);
-    sendData(losses);
+    try {
+      const response = await fetch(API);
+      const data = await response.json();
+      const losses = formatData(data);
+      sendData(losses);
+    } catch (error) {
+      setError(error);
+    }
   };
 
   const setDateRangeState = ({ dateFrom, dateTo }) => {
@@ -46,7 +50,7 @@ const LossesSelector = ({ sendData, setIdentifiers }) => {
       {error && (
         <ErrorModal
           isOpen={!!error}
-          errorText={error}
+          errorText={error.message}
           onClose={() => {
             setError(false);
           }}
