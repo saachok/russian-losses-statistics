@@ -24,7 +24,7 @@ const LossesSelector = ({ sendData, setIdentifiers }) => {
       const losses = formatData(data);
       sendData(losses);
     } catch (error) {
-      setError(error);
+      setError(error.message);
     }
   };
 
@@ -50,7 +50,7 @@ const LossesSelector = ({ sendData, setIdentifiers }) => {
       {error && (
         <ErrorModal
           isOpen={!!error}
-          errorText={error.message}
+          errorText={error}
           onClose={() => {
             setError(false);
           }}
