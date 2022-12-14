@@ -120,3 +120,14 @@ export const filterChartData = (losses, identifiers) => {
       : INITIAL_CHART_DATA.losses,
   };
 };
+
+export const fetchAPI = async (url, handleSuccess, handleError) => {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    const losses = formatData(data);
+    handleSuccess(losses);
+  } catch (error) {
+    handleError(error.messsage);
+  }
+};
