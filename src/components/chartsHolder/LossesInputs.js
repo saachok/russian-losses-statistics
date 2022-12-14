@@ -14,6 +14,13 @@ const LossesSelector = ({ setLosses, setIdentifiers }) => {
     if (dateRange.dateFrom == null && dateRange.dateTo == null) {
       return;
     }
+
+    // const testDate = new Date("2022-12-01");
+    // console.log(testDate);
+    // const dateWihoutTimezone = testDate.toISOString().slice(0, -1);
+    // console.log(dateWihoutTimezone);
+    // console.log(dateRange.dateFrom);
+
     fetchAPI(
       getValidAPI(dateRange.dateFrom, dateRange.dateTo),
       setLosses,
