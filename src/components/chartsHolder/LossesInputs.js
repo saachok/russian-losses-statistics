@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 import LossChanger from "./inputChangers/LossChanger";
 import ErrorModal from "../UI/ErrorModal";
 import DateRangePickerDemo from "./inputChangers/DateRangePicker";
-import { formatData, getValidAPI } from "../../utils/dataFormatting";
+import { getValidAPI, fetchAPI } from "../../utils/dataFormatting";
 import InfoButton from "./inputChangers/InfoButton";
 
-const LossesSelector = ({ sendData, setIdentifiers }) => {
+const LossesSelector = ({ setLosses, setIdentifiers }) => {
   const [dateRange, setDateRange] = useState({ dateFrom: null, dateTo: null });
   const [error, setError] = useState(false);
 
@@ -14,20 +14,12 @@ const LossesSelector = ({ sendData, setIdentifiers }) => {
     if (dateRange.dateFrom == null && dateRange.dateTo == null) {
       return;
     }
-
-    fetchAPI(getValidAPI(dateRange.dateFrom, dateRange.dateTo));
+    fetchAPI(
+      getValidAPI(dateRange.dateFrom, dateRange.dateTo),
+      setLosses,
+      setError
+    );
   }, [dateRange]);
-
-  const fetchAPI = async (API) => {
-    try {
-      const response = await fetch(API);
-      const data = await response.json();
-      const losses = formatData(data);
-      sendData(losses);
-    } catch (error) {
-      setError(error.message);
-    }
-  };
 
   const setDateRangeState = ({ dateFrom, dateTo }) => {
     setDateRange({

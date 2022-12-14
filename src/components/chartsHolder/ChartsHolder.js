@@ -49,7 +49,7 @@ const ChartsHolder = () => {
     >
       <PaperWrapper elevation={4}>
         <BarChart data={chartData} />
-        <LossesInputs sendData={setLosses} setIdentifiers={setIdentifiers} />
+        <LossesInputs setLosses={setLosses} setIdentifiers={setIdentifiers} />
       </PaperWrapper>
     </Box>
   );
