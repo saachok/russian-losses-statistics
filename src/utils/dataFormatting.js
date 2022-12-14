@@ -1,5 +1,9 @@
 import { millisecondsToDays, getDateRangeLength } from "./dateFunctions";
-import { DATE_2022_02_27, INITIAL_CHART_DATA } from "./constants";
+import {
+  DATE_2022_02_27,
+  INITIAL_CHART_DATA,
+  LOSSES_COLORS,
+} from "./constants";
 
 export const getValidAPI = (dateFrom, dateTo) => {
   const selectedDate =
@@ -23,90 +27,90 @@ export const formatData = (data) => {
       {
         label: "Personnel units",
         data: data.data.records.map((elem) => elem.stats.personnel_units),
-        backgroundColor: "rgba(168, 46, 46, 0.6)",
-        borderColor: "rgba(168, 46, 46, 1)",
+        backgroundColor: LOSSES_COLORS.brown.backgroundColor,
+        borderColor: LOSSES_COLORS.brown.borderColor,
       },
       {
         label: "Tanks",
         data: data.data.records.map((elem) => elem.stats.tanks),
-        backgroundColor: "rgba(211, 142, 52, 0.6)",
-        borderColor: "rgba(211, 142, 52, 1)",
+        backgroundColor: LOSSES_COLORS.orange.backgroundColor,
+        borderColor: LOSSES_COLORS.orange.borderColor,
       },
       {
         label: "Armoured flighting vehicles",
         data: data.data.records.map(
           (elem) => elem.stats.armoured_fighting_vehicles
         ),
-        backgroundColor: "rgba(208, 211, 52, 0.6)",
-        borderColor: "rgba(208, 211, 52, 1)",
+        backgroundColor: LOSSES_COLORS.yellow.backgroundColor,
+        borderColor: LOSSES_COLORS.yellow.borderColor,
       },
       {
         label: "Artillery systems",
         data: data.data.records.map((elem) => elem.stats.artillery_systems),
-        backgroundColor: "rgba(211, 195, 52, 0.6)",
-        borderColor: "rgba(211, 195, 52, 1)",
+        backgroundColor: LOSSES_COLORS.darkYellow.backgroundColor,
+        borderColor: LOSSES_COLORS.darkYellow.borderColor,
       },
       {
         label: "MLRS",
         data: data.data.records.map((elem) => elem.stats.mlrs),
-        backgroundColor: "rgba(168, 211, 52, 0.6)",
-        borderColor: "rgba(168, 211, 52, 1)",
+        backgroundColor: LOSSES_COLORS.lightGreen.backgroundColor,
+        borderColor: LOSSES_COLORS.lightGreen.borderColor,
       },
       {
         label: "AA warfare systems",
         data: data.data.records.map((elem) => elem.stats.aa_warfare_systems),
-        backgroundColor: "rgba(110, 211, 52, 0.6)",
-        borderColor: "rgba(110, 211, 52, 1)",
+        backgroundColor: LOSSES_COLORS.green.backgroundColor,
+        borderColor: LOSSES_COLORS.green.borderColor,
       },
       {
         label: "Planes",
         data: data.data.records.map((elem) => elem.stats.planes),
-        backgroundColor: "rgba(52, 211, 92, 0.6)",
-        orderdColor: "rgba(52, 211, 92, 1)",
+        backgroundColor: LOSSES_COLORS.darkGreen.backgroundColor,
+        borderColor: LOSSES_COLORS.darkGreen.borderColor,
       },
       {
         label: "Helicopters",
         data: data.data.records.map((elem) => elem.stats.helicopters),
-        backgroundColor: "rgba(52, 211, 203, 0.6)",
-        borderColor: "rgba(52, 211, 203, 1)",
+        backgroundColor: LOSSES_COLORS.lightBlue.backgroundColor,
+        borderColor: LOSSES_COLORS.lightBlue.borderColor,
       },
       {
         label: "Vehicles and fuel tanks",
         data: data.data.records.map((elem) => elem.stats.vehicles_fuel_tanks),
-        backgroundColor: "rgba(52, 139, 211, 0.6)",
-        borderColor: "rgba(52, 139, 211, 1)",
+        backgroundColor: LOSSES_COLORS.blue.backgroundColor,
+        borderColor: LOSSES_COLORS.blue.borderColor,
       },
       {
         label: "Warships/cutters",
         data: data.data.records.map((elem) => elem.stats.warships_cutters),
-        backgroundColor: "rgba(52, 89, 211, 0.6)",
-        orderdColor: "rgba(52, 89, 211, 1)",
+        backgroundColor: LOSSES_COLORS.darkBlue.backgroundColor,
+        borderColor: LOSSES_COLORS.darkBlue.borderColor,
       },
       {
         label: "Cruise missiles",
         data: data.data.records.map((elem) => elem.stats.cruise_missiles),
-        backgroundColor: "rgba(76, 52, 211, 0.6)",
-        orderdColor: "rgba(76, 52, 211, 1)",
+        backgroundColor: LOSSES_COLORS.darkPurple.backgroundColor,
+        borderColor: LOSSES_COLORS.darkPurple.borderColor,
       },
       {
         label: "UAV systems",
         data: data.data.records.map((elem) => elem.stats.uav_systems),
-        backgroundColor: "rgba(126, 52, 211, 0.6)",
-        borderColor: "rgba(126, 52, 211, 1)",
+        backgroundColor: LOSSES_COLORS.purple.backgroundColor,
+        borderColor: LOSSES_COLORS.purple.borderColor,
       },
       {
         label: "Special military equipment",
         data: data.data.records.map(
           (elem) => elem.stats.special_military_equip
         ),
-        backgroundColor: "rgba(206, 52, 211, 0.6)",
-        borderColor: "rgba(206, 52, 211, 1)",
+        backgroundColor: LOSSES_COLORS.pink.backgroundColor,
+        borderColor: LOSSES_COLORS.pink.borderColor,
       },
       {
         label: "ATGM/SRBM systems",
         data: data.data.records.map((elem) => elem.stats.atgm_srbm_systems),
-        backgroundColor: "rgba(211, 52, 92, 0.6)",
-        orderdColor: "rgba(211, 52, 92, 1)",
+        backgroundColor: LOSSES_COLORS.coral.backgroundColor,
+        borderColor: LOSSES_COLORS.coral.borderColor,
       },
     ],
   };
