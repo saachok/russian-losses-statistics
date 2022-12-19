@@ -2,6 +2,9 @@ import { millisecondsToDays, getDateRangeLength } from "./dateFunctions";
 import { DATE_2022_02_27, INITIAL_CHART_DATA } from "./constants";
 
 export const getValidAPI = (dateFrom, dateTo) => {
+  console.log("dateFrom:", dateFrom);
+  console.log("dateTo:", dateTo.toISOString());
+
   const selectedDate =
     dateFrom.getTime() - dateFrom.getTimezoneOffset() * 60000;
 
@@ -17,6 +20,7 @@ export const getValidAPI = (dateFrom, dateTo) => {
 // Make it dynamic instead of static
 
 export const formatData = (data) => {
+  console.log("Start data: ", data);
   return {
     date: data.data.records.map((elem) => elem.date),
     losses: [
@@ -124,10 +128,17 @@ export const filterChartData = (losses, identifiers) => {
 export const fetchAPI = async (url, handleSuccess, handleError) => {
   try {
     const response = await fetch(url);
+    console.log("fetchAPI -response:", response);
+
     const data = await response.json();
+    console.log("fetchAPI -data:", data);
+
     const losses = formatData(data);
+    console.log("fetchAPI -losses:", losses);
+
     handleSuccess(losses);
   } catch (error) {
+    console.log("fetchAPI error:", error);
     handleError(error.messsage);
   }
 };
