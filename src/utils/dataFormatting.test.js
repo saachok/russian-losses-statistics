@@ -17,8 +17,8 @@ import {
 // };
 
 const data = {
+  message: "The data were fetched successfully.",
   data: {
-    paging: {},
     records: [
       {
         date: "date",
@@ -42,8 +42,13 @@ const data = {
         },
       },
     ],
+    paging: {
+      next_url: "next_url",
+      prev_url: "prev_url",
+      first_url: "first_url",
+      last_url: "last_url",
+    },
   },
-  message: "The data were fetched successfully.",
 };
 
 describe("Formatting data", () => {
@@ -58,15 +63,18 @@ describe("Formatting data", () => {
 
   const fetchSuccess = () =>
     Promise.resolve({
-      json: () => Promise.resolve({ data }),
+      json: () => Promise.resolve(data),
     });
-  const fetchError = () => Promise.reject(new Error("test error"));
+
+  const errorObj = new Error();
+  const fetchError = () => Promise.reject(errorObj);
+
+  const handleSuccessSpy = jest.fn();
+  const handleErrorSpy = jest.fn();
 
   it("should call handleSuccess when fetched successfuly", async () => {
     global.fetch = jest.fn().mockImplementation(fetchSuccess);
 
-    const handleSuccessSpy = jest.fn();
-    const handleErrorSpy = jest.fn();
     const losses = formatData(data);
     await fetchAPI("url", handleSuccessSpy, handleErrorSpy);
 
@@ -74,17 +82,14 @@ describe("Formatting data", () => {
     expect(handleErrorSpy).not.toHaveBeenCalled();
   });
 
-  // it("fetch success", async () => {
-  //   expect(
-  //     fetchAPI(
-  //       "https://russianwarship.rip/api/v1/statistics?offset=3&limit=1",
-  //       setLosses,
-  //       setError
-  //     )
-  //   ).toBeCalled();
-  // });
+  it("should call handleError when fetch failed", async () => {
+    global.fetch = jest.fn().mockImplementation(fetchError);
 
-  // it('fetch error', () => {});
+    await fetchAPI("url", handleSuccessSpy, handleErrorSpy);
+
+    expect(handleSuccessSpy).not.toHaveBeenCalled();
+    expect(handleErrorSpy).toHaveBeenCalledWith(errorObj);
+  });
 
   it("create correct data format", () => {
     const formatedData = formatData(data);
