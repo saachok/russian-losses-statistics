@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { IconButton } from "@mui/material";
 
 const ChangeThemeButton = () => {
+  const [lightTheme, setLightTheme] = useState(true);
+
+  const switchTheme = () => {
+    setLightTheme((prevTheme) => !prevTheme);
+  };
+
   return (
     <IconButton
       sx={{
@@ -11,7 +17,7 @@ const ChangeThemeButton = () => {
         marginRight: "8px",
       }}
     >
-      <DarkModeIcon />
+      {lightTheme ? <LightModeIcon /> : <DarkModeIcon />}
     </IconButton>
   );
 };

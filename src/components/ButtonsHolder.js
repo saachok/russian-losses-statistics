@@ -10,7 +10,7 @@ const ButtonsHolder = () => {
       sx={{
         position: "absolute",
         top: "60px",
-        backgroundColor: "#d8fcac",
+        backgroundColor: "backgroundColor.component",
       }}
     >
       <ChangeThemeButton />

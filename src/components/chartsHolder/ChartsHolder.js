@@ -5,7 +5,12 @@ import { useState, useEffect } from "react";
 import BarChart from "./charts/BarChart";
 import LossesInputs from "./LossesInputs";
 
-import { INITIAL_CHART_DATA } from "../../utils/constants";
+import {
+  INITIAL_CHART_DATA,
+  LIGHT_PALETTE,
+  DARK_PALETTE,
+} from "../../utils/constants";
+
 import { filterChartData } from "../../utils/dataFormatting";
 
 const PaperWrapper = styled(Paper)({
@@ -14,7 +19,9 @@ const PaperWrapper = styled(Paper)({
   alignItems: "center",
   width: "inherit",
   height: "inherit",
-  backgroundColor: "#d8fcac",
+  // backgroundColor: "",
+
+  // backgroundColor: "#E91E63",
   padding: "1rem",
 });
 
@@ -46,7 +53,12 @@ const ChartsHolder = () => {
         height: "450px",
       }}
     >
-      <PaperWrapper elevation={4}>
+      <PaperWrapper
+        elevation={4}
+        sx={{
+          backgroundColor: "backgroundColor.component",
+        }}
+      >
         <BarChart data={chartData} />
         <LossesInputs setLosses={setLosses} setIdentifiers={setIdentifiers} />
       </PaperWrapper>

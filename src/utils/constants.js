@@ -1,3 +1,5 @@
+import { lightGreen, green, grey, lime, red } from "@mui/material/colors";
+
 export const DATE_2022_02_27 = new Date("2022-02-27");
 
 export const MAX_AVAILABLE_DAYS_RANGE = 50;
@@ -153,3 +155,35 @@ export const LOSSES_MAP = {
 };
 
 export const LOSS_COLORS = {};
+
+export const LIGHT_PALETTE = {
+  palette: {
+    primary: {
+      main: lightGreen[600],
+    },
+    backgroundColor: {
+      header: lightGreen[700],
+      body: lightGreen[400],
+      component: lightGreen[300],
+    },
+    text: {
+      primary: grey[900],
+      secondary: grey[900],
+    },
+  },
+};
+
+export const DARK_PALETTE = {
+  palette: {
+    primary: {
+      main: green[900],
+    },
+    backgroundColor: {
+      default: lightGreen[700],
+    },
+    text: {
+      primary: grey[800],
+      secondary: lightGreen[100],
+    },
+  },
+};
