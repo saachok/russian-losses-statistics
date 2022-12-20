@@ -2,12 +2,9 @@ import { millisecondsToDays, getDateRangeLength } from "./dateFunctions";
 import { DATE_2022_02_27, INITIAL_CHART_DATA } from "./constants";
 
 export const getValidAPI = (dateFrom, dateTo) => {
-<<<<<<< HEAD
-=======
   // console.log("dateFrom:", dateFrom);
   // console.log("dateTo:", dateTo.toISOString());
 
->>>>>>> 596e5cb70e1fde3572b806cd7b6f6a9664c72d1e
   const selectedDate =
     dateFrom.getTime() - dateFrom.getTimezoneOffset() * 60000;
 
@@ -141,12 +138,8 @@ export const fetchAPI = async (url, handleSuccess, handleError) => {
 
     handleSuccess(losses);
   } catch (error) {
-<<<<<<< HEAD
-    // console.log("fetchAPI error:", error);
-=======
     console.log(error);
     // console.log("fetchAPI -error:", error);
->>>>>>> 596e5cb70e1fde3572b806cd7b6f6a9664c72d1e
     handleError(error.messsage);
   }
 };
