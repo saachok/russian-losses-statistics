@@ -8,6 +8,7 @@ const Header = () => {
       sx={{
         width: "100wv",
         alignItems: "center",
+        flexDirection: "row",
         textAlign: "center",
         justifyContent: "center",
       }}

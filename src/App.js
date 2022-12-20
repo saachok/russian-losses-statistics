@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import ChartsHolder from "./components/chartsHolder/ChartsHolder";
 import { Container, createTheme, ThemeProvider } from "@mui/material";
+import ButtonsHolder from "./components/ButtonsHolder";
 
 const theme = createTheme({
   palette: {
@@ -30,6 +31,7 @@ function App() {
         }}
       >
         <Header />
+        <ButtonsHolder />
         <ChartsHolder />
       </Container>
     </ThemeProvider>
