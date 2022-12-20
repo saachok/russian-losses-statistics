@@ -6,6 +6,7 @@ import BarChart from "./charts/BarChart";
 import LossesInputs from "./LossesInputs";
 
 import { INITIAL_CHART_DATA } from "../../utils/constants";
+
 import { filterChartData } from "../../utils/dataFormatting";
 
 const PaperWrapper = styled(Paper)({
@@ -14,7 +15,6 @@ const PaperWrapper = styled(Paper)({
   alignItems: "center",
   width: "inherit",
   height: "inherit",
-  backgroundColor: "#d8fcac",
   padding: "1rem",
 });
 
@@ -46,7 +46,12 @@ const ChartsHolder = () => {
         height: "450px",
       }}
     >
-      <PaperWrapper elevation={4}>
+      <PaperWrapper
+        elevation={4}
+        sx={{
+          backgroundColor: "backgroundColor.component",
+        }}
+      >
         <BarChart data={chartData} />
         <LossesInputs setLosses={setLosses} setIdentifiers={setIdentifiers} />
       </PaperWrapper>

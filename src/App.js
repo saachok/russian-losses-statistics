@@ -1,18 +1,28 @@
+import React, { useState } from "react";
 import Header from "./components/Header";
 import ChartsHolder from "./components/chartsHolder/ChartsHolder";
 import { Container, createTheme, ThemeProvider } from "@mui/material";
+import ButtonsHolder from "./components/ButtonsHolder";
+import { LIGHT_PALETTE, DARK_PALETTE } from "./utils/constants";
+import CssBaseline from "@mui/material/CssBaseline";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#9ccc65",
-    },
-  },
-});
+// const theme = createTheme({
+//   palette: {
+//     mode: "light",
+//   },
+// });
+const getDesignTokens = (mode) => {
+  return mode === "dark" ? DARK_PALETTE : LIGHT_PALETTE;
+};
 
 function App() {
+  const [mode, setMode] = useState("light");
+
+  const lightModeTheme = createTheme(getDesignTokens(mode));
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={lightModeTheme}>
+      <CssBaseline />
       <Container
         maxWidth="false"
         disableGutters
@@ -20,16 +30,15 @@ function App() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-
           height: "100vh",
           margin: 0,
           padding: 0,
-          backgroundColor: "#e0ffbb",
-
+          backgroundColor: `backgroundColor.body`,
           overflow: "hidden",
         }}
       >
         <Header />
+        <ButtonsHolder mode={mode} setMode={setMode} />
         <ChartsHolder />
       </Container>
     </ThemeProvider>
