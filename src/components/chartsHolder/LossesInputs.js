@@ -14,6 +14,7 @@ const LossesSelector = ({ setLosses, setIdentifiers }) => {
     if (dateRange.dateFrom == null && dateRange.dateTo == null) {
       return;
     }
+
     fetchAPI(
       getValidAPI(dateRange.dateFrom, dateRange.dateTo),
       setLosses,
