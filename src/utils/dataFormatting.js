@@ -128,18 +128,18 @@ export const filterChartData = (losses, identifiers) => {
 export const fetchAPI = async (url, handleSuccess, handleError) => {
   try {
     const response = await fetch(url);
-    console.log("fetchAPI -response:", response);
+    // console.log("fetchAPI -response:", response);
 
     const data = await response.json();
-    console.log("fetchAPI -data:", data);
+    // console.log("fetchAPI -data:", data);
 
     const losses = formatData(data);
-    console.log("fetchAPI -losses:", losses);
+    // console.log("fetchAPI -losses:", losses);
 
     handleSuccess(losses);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     // console.log("fetchAPI -error:", error);
-    handleError(error.messsage);
+    handleError(error);
   }
 };

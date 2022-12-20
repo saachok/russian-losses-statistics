@@ -65,11 +65,14 @@ describe("Formatting data", () => {
     Promise.resolve({
       json: () => Promise.resolve(data),
     });
+
   const errorObj = new Error();
   const fetchError = () => Promise.reject(errorObj);
 
   const handleSuccessSpy = jest.fn();
-  const handleErrorSpy = jest.fn();
+  const handleErrorSpy = jest.fn().mockImplementation(() => {
+    console.log("test log");
+  });
 
   it("should call handleSuccess when fetched successfuly", async () => {
     global.fetch = jest.fn().mockImplementation(fetchSuccess);
@@ -77,8 +80,8 @@ describe("Formatting data", () => {
     const losses = formatData(data);
     await fetchAPI("url", handleSuccessSpy, handleErrorSpy);
 
-    // expect(handleSuccessSpy).toHaveBeenCalledWith(losses);
-    // expect(handleErrorSpy).not.toHaveBeenCalled();
+    expect(handleSuccessSpy).toHaveBeenCalledWith(losses);
+    expect(handleErrorSpy).not.toHaveBeenCalled();
   });
 
   it("should call handleError when fetch failed", async () => {
@@ -87,7 +90,9 @@ describe("Formatting data", () => {
     await fetchAPI("url", handleSuccessSpy, handleErrorSpy);
 
     expect(handleSuccessSpy).not.toHaveBeenCalled();
+    expect(fetch).rejects.toEqual(errorObj);
     expect(handleErrorSpy).toHaveBeenCalledWith(errorObj);
+    // expect(handleErrorSpy).toHaveBeenCalledWith(errorObj);
   });
 
   it("create correct data format", () => {
