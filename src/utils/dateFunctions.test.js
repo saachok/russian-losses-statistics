@@ -1,15 +1,15 @@
 import { differenceInDays } from "date-fns";
 import {
-  // millisecondsToDays,
+  millisecondsToDays,
   daysToMilliseconds,
   getDateRangeLength,
 } from "./dateFunctions";
 
 describe("date funbctions", () => {
   it("convert milliseconds to days", () => {
-    const millisecondsToDays = jest.fn().mockImplementation(() => {
-      return 1;
-    });
+    // const millisecondsToDays = jest.fn().mockImplementation(() => {
+    //   return 1;
+    // });
     expect(millisecondsToDays(86400000)).toBe(1);
     expect(millisecondsToDays(0)).toBe(0);
     expect(millisecondsToDays(-86400000)).toBe(-1);
