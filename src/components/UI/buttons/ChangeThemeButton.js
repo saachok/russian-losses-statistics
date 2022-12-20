@@ -3,21 +3,20 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { IconButton } from "@mui/material";
 
-const ChangeThemeButton = () => {
-  const [lightTheme, setLightTheme] = useState(true);
-
+const ChangeThemeButton = ({ mode, setMode }) => {
   const switchTheme = () => {
-    setLightTheme((prevTheme) => !prevTheme);
+    setMode(mode === "light" ? "dark" : "light");
   };
 
   return (
     <IconButton
+      onClick={switchTheme}
       sx={{
         marginLeft: "8px",
         marginRight: "8px",
       }}
     >
-      {lightTheme ? <LightModeIcon /> : <DarkModeIcon />}
+      {mode === "light" ? <LightModeIcon /> : <DarkModeIcon />}
     </IconButton>
   );
 };

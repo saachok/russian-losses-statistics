@@ -1,9 +1,8 @@
-import { Box } from "@mui/system";
 import { Paper } from "@mui/material";
 import React from "react";
 import ChangeThemeButton from "./UI/buttons/ChangeThemeButton";
 
-const ButtonsHolder = () => {
+const ButtonsHolder = ({ mode, setMode }) => {
   return (
     <Paper
       elevation={4}
@@ -13,7 +12,7 @@ const ButtonsHolder = () => {
         backgroundColor: "backgroundColor.component",
       }}
     >
-      <ChangeThemeButton />
+      <ChangeThemeButton mode={mode} setMode={setMode} />
     </Paper>
   );
 };

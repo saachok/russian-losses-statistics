@@ -5,11 +5,7 @@ import { useState, useEffect } from "react";
 import BarChart from "./charts/BarChart";
 import LossesInputs from "./LossesInputs";
 
-import {
-  INITIAL_CHART_DATA,
-  LIGHT_PALETTE,
-  DARK_PALETTE,
-} from "../../utils/constants";
+import { INITIAL_CHART_DATA } from "../../utils/constants";
 
 import { filterChartData } from "../../utils/dataFormatting";
 
@@ -19,9 +15,6 @@ const PaperWrapper = styled(Paper)({
   alignItems: "center",
   width: "inherit",
   height: "inherit",
-  // backgroundColor: "",
-
-  // backgroundColor: "#E91E63",
   padding: "1rem",
 });
 

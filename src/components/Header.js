@@ -15,7 +15,7 @@ const Header = () => {
         backgroundColor: "backgroundColor.header",
       }}
     >
-      <Typography variant={"h5"} sx={{ p: 1 }} color="text.secondary">
+      <Typography variant={"h5"} sx={{ p: 1 }} color="text.header">
         Russian losses at war against Ukraine
       </Typography>
     </AppBar>

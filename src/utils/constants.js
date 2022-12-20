@@ -1,4 +1,4 @@
-import { lightGreen, green, grey, lime, red } from "@mui/material/colors";
+import { lightGreen, green, grey } from "@mui/material/colors";
 
 export const DATE_2022_02_27 = new Date("2022-02-27");
 
@@ -167,6 +167,7 @@ export const LIGHT_PALETTE = {
       component: lightGreen[300],
     },
     text: {
+      header: grey[900],
       primary: grey[900],
       secondary: grey[900],
     },
@@ -176,14 +177,17 @@ export const LIGHT_PALETTE = {
 export const DARK_PALETTE = {
   palette: {
     primary: {
-      main: green[900],
+      main: grey[900],
     },
     backgroundColor: {
-      default: lightGreen[700],
+      header: green[900],
+      body: green[600],
+      component: green[400],
     },
     text: {
-      primary: grey[800],
-      secondary: lightGreen[100],
+      header: grey[200],
+      primary: grey[900],
+      secondary: grey[900],
     },
   },
 };
