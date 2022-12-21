@@ -11,7 +11,6 @@ const ButtonsHolder = ({ mode, setMode }) => {
       sx={{
         position: "absolute",
         top: wideScreen ? "3.5rem" : "5.5rem",
-
         backgroundColor: "backgroundColor.component",
       }}
     >

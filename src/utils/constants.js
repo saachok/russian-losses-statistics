@@ -25,8 +25,6 @@ export const LOSSES_COLORS = {
   brown: {
     backgroundColor: brown[500],
     borderColor: grey[900],
-    // backgroundColor: "rgba(168, 46, 46, 0.85)",
-    // borderColor: "rgba(168, 46, 46, 1)",
   },
   orange: {
     backgroundColor: orange[500],
@@ -167,8 +165,6 @@ export const LOSSES_MAP = {
     borderColor: LOSSES_COLORS.coral.borderColor,
   },
 };
-
-export const LOSS_COLORS = {};
 
 export const LIGHT_PALETTE = {
   palette: {

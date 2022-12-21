@@ -1,16 +1,11 @@
 import React, { useState } from "react";
-import Header from "./components/Header";
-import ChartsHolder from "./components/chartsHolder/ChartsHolder";
-import { Container, createTheme, ThemeProvider } from "@mui/material";
-import ButtonsHolder from "./components/ButtonsHolder";
-import { LIGHT_PALETTE, DARK_PALETTE } from "./utils/constants";
 import CssBaseline from "@mui/material/CssBaseline";
+import { Container, createTheme, ThemeProvider } from "@mui/material";
+import Header from "./components/Header";
+import ButtonsHolder from "./components/ButtonsHolder";
+import ChartsHolder from "./components/chartsHolder/ChartsHolder";
+import { LIGHT_PALETTE, DARK_PALETTE } from "./utils/constants";
 
-// const theme = createTheme({
-//   palette: {
-//     mode: "light",
-//   },
-// });
 const getDesignTokens = (mode) => {
   return mode === "dark" ? DARK_PALETTE : LIGHT_PALETTE;
 };
