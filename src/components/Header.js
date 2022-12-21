@@ -8,6 +8,7 @@ const Header = () => {
       enableColorOnDark
       sx={{
         width: "100wv",
+        minWidth: "320px",
         alignItems: "center",
         flexDirection: "row",
         textAlign: "center",

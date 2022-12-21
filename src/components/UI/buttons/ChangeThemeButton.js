@@ -31,6 +31,7 @@ const ChangeThemeButton = ({ mode, setMode }) => {
         onClick={switchTheme}
         onMouseEnter={handleOpenPopover}
         onMouseLeave={handleClosePopover}
+        color="secondary"
         sx={{
           marginLeft: "8px",
           marginRight: "8px",

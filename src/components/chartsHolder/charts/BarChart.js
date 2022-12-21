@@ -19,6 +19,8 @@ const BarChart = ({ data }) => {
         position: "relative",
         width: "inherit",
         height: "inherit",
+        paddingLeft: "1rem",
+        paddingRight: "1rem",
       }}
     >
       <Bar

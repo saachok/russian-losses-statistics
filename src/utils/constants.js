@@ -1,4 +1,16 @@
-import { lightGreen, green, grey } from "@mui/material/colors";
+import {
+  pink,
+  purple,
+  deepPurple,
+  blue,
+  lightBlue,
+  yellow,
+  orange,
+  brown,
+  lightGreen,
+  green,
+  grey,
+} from "@mui/material/colors";
 
 export const DATE_2022_02_27 = new Date("2022-02-27");
 
@@ -11,60 +23,62 @@ export const INITIAL_CHART_DATA = {
 
 export const LOSSES_COLORS = {
   brown: {
-    backgroundColor: "rgba(168, 46, 46, 0.85)",
-    borderColor: "rgba(168, 46, 46, 1)",
+    backgroundColor: brown[500],
+    borderColor: grey[900],
+    // backgroundColor: "rgba(168, 46, 46, 0.85)",
+    // borderColor: "rgba(168, 46, 46, 1)",
   },
   orange: {
-    backgroundColor: "rgba(211, 142, 52, 0.85)",
-    borderColor: "rgba(211, 142, 52, 1)",
+    backgroundColor: orange[500],
+    borderColor: grey[900],
   },
   yellow: {
-    backgroundColor: "rgba(208, 211, 52, 0.85)",
-    borderColor: "rgba(208, 211, 52, 1)",
+    backgroundColor: yellow[500],
+    borderColor: grey[900],
   },
   darkYellow: {
-    backgroundColor: "rgba(211, 195, 52, 0.85)",
-    borderColor: "gba(211, 195, 52, 1)",
+    backgroundColor: yellow[700],
+    borderColor: grey[900],
   },
   lightGreen: {
-    backgroundColor: "rgba(168, 211, 52, 0.85)",
-    borderColor: "rgba(168, 211, 52, 1)",
+    backgroundColor: lightGreen["A200"],
+    borderColor: grey[900],
   },
   green: {
-    backgroundColor: "rgba(110, 211, 52, 0.85)",
-    borderColor: "rgba(110, 211, 52, 1)",
+    backgroundColor: lightGreen["A400"],
+    borderColor: grey[900],
   },
   darkGreen: {
-    backgroundColor: "rgba(52, 211, 92, 0.85)",
-    borderColor: "rgba(52, 211, 92, 1)",
+    backgroundColor: lightGreen["A700"],
+    borderColor: grey[900],
   },
   lightBlue: {
-    backgroundColor: "rgba(52, 211, 203, 0.85)",
-    borderColor: "rgba(52, 211, 203, 1)",
+    backgroundColor: lightBlue[500],
+    borderColor: grey[900],
   },
   blue: {
-    backgroundColor: "rgba(52, 139, 211, 0.85)",
-    borderColor: "rgba(52, 139, 211, 1)",
+    backgroundColor: blue[500],
+    borderColor: grey[900],
   },
   darkBlue: {
-    backgroundColor: "rgba(52, 89, 211, 0.85)",
-    borderColor: "rgba(52, 89, 211, 1)",
+    backgroundColor: blue[900],
+    borderColor: grey[900],
   },
   darkPurple: {
-    backgroundColor: "rgba(76, 52, 211, 0.85)",
-    borderColor: "rgba(76, 52, 211, 1)",
+    backgroundColor: deepPurple[500],
+    borderColor: grey[900],
   },
   purple: {
-    backgroundColor: "rgba(126, 52, 211, 0.85)",
-    borderColor: "rgba(126, 52, 211, 1)",
+    backgroundColor: purple[500],
+    borderColor: grey[900],
   },
   pink: {
-    backgroundColor: "rgba(206, 52, 211, 0.85)",
-    borderColor: "rgba(206, 52, 211, 1)",
+    backgroundColor: pink[500],
+    borderColor: grey[900],
   },
   coral: {
-    backgroundColor: "rgba(211, 52, 92, 0.85)",
-    borderColor: "rgba(211, 52, 92, 1)",
+    backgroundColor: pink[800],
+    borderColor: grey[900],
   },
 };
 
@@ -161,6 +175,9 @@ export const LIGHT_PALETTE = {
     primary: {
       main: lightGreen[600],
     },
+    secondary: {
+      main: green[900],
+    },
     backgroundColor: {
       header: lightGreen[700],
       body: lightGreen[400],
@@ -178,6 +195,9 @@ export const DARK_PALETTE = {
   palette: {
     primary: {
       main: grey[900],
+    },
+    secondary: {
+      main: green[900],
     },
     backgroundColor: {
       header: green[900],

@@ -7,20 +7,19 @@ import InfoIcon from "@mui/icons-material/Info";
 const InfoButton = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleClick = (event) => {
+  const handleOpenPopover = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleClosePopover = () => {
     setAnchorEl(null);
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
 
   return (
     <div>
-      <IconButton
+      {/* <IconButton
         aria-label="info"
         aria-describedby={id}
         onClick={handleClick}
@@ -30,18 +29,34 @@ const InfoButton = () => {
           padding: 0,
         }}
       >
-        <InfoIcon />
-      </IconButton>
+      </IconButton> */}
+      <InfoIcon
+        aria-label="info"
+        aria-owns={open ? "mouse-over-popover" : undefined}
+        aria-haspopup="true"
+        onMouseEnter={handleOpenPopover}
+        onMouseLeave={handleClosePopover}
+        color="secondary"
+        sx={{
+          position: "relative",
+          margin: 0,
+          padding: 0,
+        }}
+      />
 
       <Popover
-        id={id}
+        id="mouse-over-popover"
+        sx={{
+          pointerEvents: "none",
+        }}
         open={open}
         anchorEl={anchorEl}
-        onClose={handleClose}
         anchorOrigin={{
           vertical: "bottom",
           horizontal: "left",
         }}
+        onClose={handleClosePopover}
+        disableRestoreFocus
       >
         <Typography variant="body2" sx={{ p: 1 }}>
           The interval must be less than 50 and bigger than 0. (1 ≤ range ≤ 50)
