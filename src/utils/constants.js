@@ -175,6 +175,9 @@ export const LIGHT_PALETTE = {
     primary: {
       main: lightGreen[600],
     },
+    secondary: {
+      main: green[900],
+    },
     backgroundColor: {
       header: lightGreen[700],
       body: lightGreen[400],
@@ -192,6 +195,9 @@ export const DARK_PALETTE = {
   palette: {
     primary: {
       main: grey[900],
+    },
+    secondary: {
+      main: green[900],
     },
     backgroundColor: {
       header: green[900],
