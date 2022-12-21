@@ -13,28 +13,28 @@ export const getDateRangeLength = (end, start) => {
   return 1 + differenceInDays(end, start);
 };
 
-// refactor this block of code
 export const disableOutOfRange = (date, dates) => {
-  let currentDateToMilliseconds = date["$d"].getTime();
+  let currentDate = date["$d"].getTime();
 
   if (dates[0] == null) {
     return false;
   }
 
-  let topBorderDateMilliseconds =
+  let highLimitDate =
     dates[0]["$d"].getTime() + daysToMilliseconds(MAX_AVAILABLE_DAYS_RANGE);
 
-  if (currentDateToMilliseconds >= topBorderDateMilliseconds) {
+  if (currentDate >= highLimitDate) {
     return true;
   }
 
   if (dates[1] == null) {
     return;
   }
-  let botBorderDateMilliseconds =
+
+  let lowLimitDate =
     dates[1]["$d"].getTime() - daysToMilliseconds(MAX_AVAILABLE_DAYS_RANGE);
 
-  if (currentDateToMilliseconds <= botBorderDateMilliseconds) {
+  if (currentDate <= lowLimitDate) {
     return true;
-  } else return false;
+  }
 };
