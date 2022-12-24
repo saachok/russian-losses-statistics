@@ -166,6 +166,12 @@ export const LOSSES_MAP = {
   },
 };
 
+export const DARK_MODE = "dark";
+
+export const LIGHT_MODE = "light";
+
+export const DEFAULT_MODE = DARK_MODE;
+
 export const LIGHT_PALETTE = {
   palette: {
     primary: {
