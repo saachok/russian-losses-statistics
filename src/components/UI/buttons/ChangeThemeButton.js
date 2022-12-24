@@ -4,9 +4,11 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import { IconButton } from "@mui/material";
+import { switchTheme } from "../../../utils/themeChanging";
 
 const ChangeThemeButton = ({ mode, setMode }) => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
 
   const handleOpenPopover = (event) => {
     setAnchorEl(event.currentTarget);
@@ -16,19 +18,13 @@ const ChangeThemeButton = ({ mode, setMode }) => {
     setAnchorEl(null);
   };
 
-  const open = Boolean(anchorEl);
-
-  const switchTheme = () => {
-    setMode(mode === "light" ? "dark" : "light");
-  };
-
   return (
     <>
       <IconButton
         aria-label="themeSwitcher"
         aria-owns={open ? "mouse-over-popover" : undefined}
         aria-haspopup="true"
-        onClick={switchTheme}
+        onClick={() => switchTheme(mode, setMode)}
         onMouseEnter={handleOpenPopover}
         onMouseLeave={handleClosePopover}
         color="secondary"

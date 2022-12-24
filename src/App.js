@@ -4,19 +4,14 @@ import { Container, createTheme, ThemeProvider } from "@mui/material";
 import Header from "./components/Header";
 import ButtonsHolder from "./components/ButtonsHolder";
 import ChartsHolder from "./components/chartsHolder/ChartsHolder";
-import { LIGHT_PALETTE, DARK_PALETTE } from "./utils/constants";
-
-const getDesignTokens = (mode) => {
-  return mode === "dark" ? DARK_PALETTE : LIGHT_PALETTE;
-};
+import { getThemeMode, getInitialTheme } from "./utils/themeChanging";
 
 function App() {
-  const [mode, setMode] = useState("light");
-
-  const lightModeTheme = createTheme(getDesignTokens(mode));
+  const [mode, setMode] = useState(getInitialTheme());
+  const theme = createTheme(getThemeMode(mode));
 
   return (
-    <ThemeProvider theme={lightModeTheme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container
         maxWidth="false"
