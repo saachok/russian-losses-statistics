@@ -35,13 +35,11 @@ const LossChanger = ({ getLoss }) => {
           renderValue={(selected) => selected.join(", ")}
           label="Loss"
           sx={{
-            // backgroundColor: "black",
             width: {
               xs: "80px",
               sm: "110px",
               md: "140px",
               lg: "170px",
-              // xl: "200px",
             },
           }}
         >

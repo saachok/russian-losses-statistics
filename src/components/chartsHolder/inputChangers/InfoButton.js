@@ -1,11 +1,11 @@
 import * as React from "react";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
-import { IconButton } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 
 const InfoButton = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
 
   const handleOpenPopover = (event) => {
     setAnchorEl(event.currentTarget);
@@ -15,21 +15,8 @@ const InfoButton = () => {
     setAnchorEl(null);
   };
 
-  const open = Boolean(anchorEl);
-
   return (
-    <div>
-      {/* <IconButton
-        aria-label="info"
-        aria-describedby={id}
-        onClick={handleClick}
-        sx={{
-          position: "relative",
-          margin: 0,
-          padding: 0,
-        }}
-      >
-      </IconButton> */}
+    <>
       <InfoIcon
         aria-label="info"
         aria-owns={open ? "mouse-over-popover" : undefined}
@@ -43,7 +30,6 @@ const InfoButton = () => {
           padding: 0,
         }}
       />
-
       <Popover
         id="mouse-over-popover"
         sx={{
@@ -62,7 +48,7 @@ const InfoButton = () => {
           The interval must be less than 50 and bigger than 0. (1 ≤ range ≤ 50)
         </Typography>
       </Popover>
-    </div>
+    </>
   );
 };
 
