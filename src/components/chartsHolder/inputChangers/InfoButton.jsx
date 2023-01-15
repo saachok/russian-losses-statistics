@@ -1,7 +1,7 @@
-import * as React from "react";
-import Popover from "@mui/material/Popover";
-import Typography from "@mui/material/Typography";
-import InfoIcon from "@mui/icons-material/Info";
+import * as React from 'react';
+import Popover from '@mui/material/Popover';
+import Typography from '@mui/material/Typography';
+import InfoIcon from '@mui/icons-material/Info';
 
 const InfoButton = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -19,13 +19,13 @@ const InfoButton = () => {
     <>
       <InfoIcon
         aria-label="info"
-        aria-owns={open ? "mouse-over-popover" : undefined}
+        aria-owns={open ? 'mouse-over-popover' : undefined}
         aria-haspopup="true"
         onMouseEnter={handleOpenPopover}
         onMouseLeave={handleClosePopover}
         color="secondary"
         sx={{
-          position: "relative",
+          position: 'relative',
           margin: 0,
           padding: 0,
         }}
@@ -33,13 +33,13 @@ const InfoButton = () => {
       <Popover
         id="mouse-over-popover"
         sx={{
-          pointerEvents: "none",
+          pointerEvents: 'none',
         }}
         open={open}
         anchorEl={anchorEl}
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
+          vertical: 'bottom',
+          horizontal: 'left',
         }}
         onClose={handleClosePopover}
         disableRestoreFocus
