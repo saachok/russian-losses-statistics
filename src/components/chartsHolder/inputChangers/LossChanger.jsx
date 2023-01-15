@@ -13,7 +13,7 @@ const LossChanger = ({ getLoss }) => {
 
   useEffect(() => {
     getLoss(loss);
-  }, [loss]);
+  }, [getLoss, loss]);
 
   const handleChange = (event) => {
     const {

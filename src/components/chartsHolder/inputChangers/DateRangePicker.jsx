@@ -18,7 +18,7 @@ const DateRangePickerDemo = ({ setDateRangeState }) => {
         dateTo: dates[1]['$d'],
       });
     }
-  }, [dates[0], dates[1]]);
+  }, [dates, setDateRangeState]);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>

@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import LossChanger from './inputChangers/LossChanger';
 import ErrorModal from '../UI/ErrorModal';
 import DateRangePickerDemo from './inputChangers/DateRangePicker';
@@ -20,14 +20,14 @@ const LossesSelector = ({ setLosses, setIdentifiers }) => {
       setLosses,
       setError
     );
-  }, [dateRange]);
+  }, [setLosses, dateRange]);
 
-  const setDateRangeState = ({ dateFrom, dateTo }) => {
+  const setDateRangeState = useCallback(({ dateFrom, dateTo }) => {
     setDateRange({
       dateFrom,
       dateTo,
     });
-  };
+  }, []);
 
   return (
     <Box display="flex" alignItems="center" gap="0.5rem" marginTop="0.5rem">
