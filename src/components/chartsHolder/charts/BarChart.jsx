@@ -1,6 +1,6 @@
-import React from "react";
-import Chart from "chart.js/auto";
-import { Bar } from "react-chartjs-2";
+import React from 'react';
+import Chart from 'chart.js/auto';
+import { Bar } from 'react-chartjs-2';
 
 const BarChart = ({ data }) => {
   const datasets = data.losses.map((elem) => {
@@ -16,11 +16,11 @@ const BarChart = ({ data }) => {
   return (
     <div
       style={{
-        position: "relative",
-        width: "inherit",
-        height: "inherit",
-        paddingLeft: "1rem",
-        paddingRight: "1rem",
+        position: 'relative',
+        width: 'inherit',
+        height: 'inherit',
+        paddingLeft: '1rem',
+        paddingRight: '1rem',
       }}
     >
       <Bar

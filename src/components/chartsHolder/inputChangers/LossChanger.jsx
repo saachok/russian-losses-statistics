@@ -1,12 +1,12 @@
-import * as React from "react";
-import { useEffect } from "react";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import { LOSSES_MAP } from "../../../utils/constants";
-import { Checkbox, ListItemText } from "@mui/material";
+import * as React from 'react';
+import { useEffect } from 'react';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import { LOSSES_MAP } from '../../../utils/constants';
+import { Checkbox, ListItemText } from '@mui/material';
 
 const LossChanger = ({ getLoss }) => {
   const [loss, setLoss] = React.useState([]);
@@ -19,7 +19,7 @@ const LossChanger = ({ getLoss }) => {
     const {
       target: { value },
     } = event;
-    setLoss(typeof value === "string" ? value.split(",") : value);
+    setLoss(typeof value === 'string' ? value.split(',') : value);
   };
 
   return (
@@ -32,14 +32,14 @@ const LossChanger = ({ getLoss }) => {
           multiple
           value={loss}
           onChange={handleChange}
-          renderValue={(selected) => selected.join(", ")}
+          renderValue={(selected) => selected.join(', ')}
           label="Loss"
           sx={{
             width: {
-              xs: "80px",
-              sm: "110px",
-              md: "140px",
-              lg: "170px",
+              xs: '80px',
+              sm: '110px',
+              md: '140px',
+              lg: '170px',
             },
           }}
         >

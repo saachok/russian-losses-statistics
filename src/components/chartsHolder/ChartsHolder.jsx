@@ -1,21 +1,21 @@
-import React from "react";
-import { Box, styled, Paper } from "@mui/material";
-import { useState, useEffect } from "react";
+import React from 'react';
+import { Box, styled, Paper } from '@mui/material';
+import { useState, useEffect } from 'react';
 
-import BarChart from "./charts/BarChart";
-import LossesInputs from "./LossesInputs";
+import BarChart from './charts/BarChart';
+import LossesInputs from './LossesInputs';
 
-import { INITIAL_CHART_DATA } from "../../utils/constants";
+import { INITIAL_CHART_DATA } from '../../utils/constants';
 
-import { filterChartData } from "../../utils/dataFormatting";
+import { filterChartData } from '../../utils/dataFormatting';
 
 const PaperWrapper = styled(Paper)({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  width: "inherit",
-  height: "inherit",
-  padding: "1rem",
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  width: 'inherit',
+  height: 'inherit',
+  padding: '1rem',
 });
 
 const ChartsHolder = () => {
@@ -38,18 +38,18 @@ const ChartsHolder = () => {
       paddingTop="1rem"
       sx={{
         width: {
-          xs: "300px",
-          sm: "500px",
-          md: "800px",
-          lg: "1100px",
+          xs: '300px',
+          sm: '500px',
+          md: '800px',
+          lg: '1100px',
         },
-        height: "450px",
+        height: '450px',
       }}
     >
       <PaperWrapper
         elevation={4}
         sx={{
-          backgroundColor: "backgroundColor.component",
+          backgroundColor: 'backgroundColor.component',
         }}
       >
         <BarChart data={chartData} />

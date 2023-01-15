@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import Popover from "@mui/material/Popover";
-import Typography from "@mui/material/Typography";
-import { IconButton } from "@mui/material";
-import { switchTheme } from "../../../utils/themeChanging";
+import React, { useState } from 'react';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import Popover from '@mui/material/Popover';
+import Typography from '@mui/material/Typography';
+import { IconButton } from '@mui/material';
+import { switchTheme } from '../../../utils/themeChanging';
 
 const ChangeThemeButton = ({ mode, setMode }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -22,36 +22,36 @@ const ChangeThemeButton = ({ mode, setMode }) => {
     <>
       <IconButton
         aria-label="themeSwitcher"
-        aria-owns={open ? "mouse-over-popover" : undefined}
+        aria-owns={open ? 'mouse-over-popover' : undefined}
         aria-haspopup="true"
         onClick={() => switchTheme(mode, setMode)}
         onMouseEnter={handleOpenPopover}
         onMouseLeave={handleClosePopover}
         color="secondary"
         sx={{
-          marginLeft: "8px",
-          marginRight: "8px",
+          marginLeft: '8px',
+          marginRight: '8px',
         }}
       >
-        {mode === "light" ? <LightModeIcon /> : <DarkModeIcon />}
+        {mode === 'light' ? <LightModeIcon /> : <DarkModeIcon />}
       </IconButton>
 
       <Popover
-        id={"mouse-over-popover"}
+        id={'mouse-over-popover'}
         sx={{
-          pointerEvents: "none",
+          pointerEvents: 'none',
         }}
         open={open}
         anchorEl={anchorEl}
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "right",
+          vertical: 'bottom',
+          horizontal: 'right',
         }}
         onClose={handleClosePopover}
         disableRestoreFocus
       >
         <Typography variant="body2" sx={{ p: 1 }}>
-          Switch to {mode === "light" ? "dark" : "light"} mode
+          Switch to {mode === 'light' ? 'dark' : 'light'} mode
         </Typography>
       </Popover>
     </>

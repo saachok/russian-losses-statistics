@@ -1,12 +1,12 @@
-import * as React from "react";
-import { useEffect } from "react";
+import * as React from 'react';
+import { useEffect } from 'react';
 
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
-import { LocalizationProvider } from "@mui/x-date-pickers-pro";
-import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
-import { DateRangePicker } from "@mui/x-date-pickers-pro";
-import { disableOutOfRange } from "../../../utils/dateFunctions";
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import { LocalizationProvider } from '@mui/x-date-pickers-pro';
+import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
+import { DateRangePicker } from '@mui/x-date-pickers-pro';
+import { disableOutOfRange } from '../../../utils/dateFunctions';
 
 const DateRangePickerDemo = ({ setDateRangeState }) => {
   const [dates, setDates] = React.useState([null, null]);
@@ -14,8 +14,8 @@ const DateRangePickerDemo = ({ setDateRangeState }) => {
   useEffect(() => {
     if (dates[0] !== null && dates[1] !== null) {
       setDateRangeState({
-        dateFrom: dates[0]["$d"],
-        dateTo: dates[1]["$d"],
+        dateFrom: dates[0]['$d'],
+        dateTo: dates[1]['$d'],
       });
     }
   }, [dates[0], dates[1]]);
@@ -24,7 +24,7 @@ const DateRangePickerDemo = ({ setDateRangeState }) => {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateRangePicker
         displayStaticWrapperAs="desktop"
-        minDate={new Date("2022-02-27")}
+        minDate={new Date('2022-02-27')}
         shouldDisableDate={(date) => disableOutOfRange(date, dates)}
         disableFuture
         value={dates}
@@ -37,9 +37,9 @@ const DateRangePickerDemo = ({ setDateRangeState }) => {
             <Box
               sx={{
                 margin: {
-                  xs: "4px",
-                  sm: "6px",
-                  md: "8px",
+                  xs: '4px',
+                  sm: '6px',
+                  md: '8px',
                 },
               }}
             >

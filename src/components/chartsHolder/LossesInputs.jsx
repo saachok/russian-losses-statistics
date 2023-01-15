@@ -1,10 +1,10 @@
-import { Box } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import LossChanger from "./inputChangers/LossChanger";
-import ErrorModal from "../UI/ErrorModal";
-import DateRangePickerDemo from "./inputChangers/DateRangePicker";
-import { getValidAPI, fetchAPI } from "../../utils/dataFormatting";
-import InfoButton from "./inputChangers/InfoButton";
+import { Box } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import LossChanger from './inputChangers/LossChanger';
+import ErrorModal from '../UI/ErrorModal';
+import DateRangePickerDemo from './inputChangers/DateRangePicker';
+import { getValidAPI, fetchAPI } from '../../utils/dataFormatting';
+import InfoButton from './inputChangers/InfoButton';
 
 const LossesSelector = ({ setLosses, setIdentifiers }) => {
   const [dateRange, setDateRange] = useState({ dateFrom: null, dateTo: null });

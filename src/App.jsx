@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import CssBaseline from "@mui/material/CssBaseline";
-import { Container, createTheme, ThemeProvider } from "@mui/material";
-import Header from "./components/Header";
-import ButtonsHolder from "./components/ButtonsHolder";
-import ChartsHolder from "./components/chartsHolder/ChartsHolder";
-import { getThemeMode, getInitialTheme } from "./utils/themeChanging";
+import React, { useState } from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import { Container, createTheme, ThemeProvider } from '@mui/material';
+import Header from './components/Header';
+import ButtonsHolder from './components/ButtonsHolder';
+import ChartsHolder from './components/chartsHolder/ChartsHolder';
+import { getThemeMode, getInitialTheme } from './utils/themeChanging';
 
 function App() {
   const [mode, setMode] = useState(getInitialTheme());
@@ -17,14 +17,14 @@ function App() {
         maxWidth="false"
         disableGutters
         sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100vh",
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh',
           margin: 0,
           padding: 0,
           backgroundColor: `backgroundColor.body`,
-          overflow: "hidden",
+          overflow: 'hidden',
         }}
       >
         <Header />

@@ -1,5 +1,5 @@
-import { AppBar, Typography } from "@mui/material";
-import React from "react";
+import { AppBar, Typography } from '@mui/material';
+import React from 'react';
 
 const Header = () => {
   return (
@@ -7,16 +7,16 @@ const Header = () => {
       position="absolute"
       enableColorOnDark
       sx={{
-        width: "100wv",
-        minWidth: "320px",
-        alignItems: "center",
-        flexDirection: "row",
-        textAlign: "center",
-        justifyContent: "center",
-        backgroundColor: "backgroundColor.header",
+        width: '100wv',
+        minWidth: '320px',
+        alignItems: 'center',
+        flexDirection: 'row',
+        textAlign: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'backgroundColor.header',
       }}
     >
-      <Typography variant={"h5"} sx={{ p: 1 }} color="text.header">
+      <Typography variant={'h5'} sx={{ p: 1 }} color="text.header">
         Russian losses at war against Ukraine
       </Typography>
     </AppBar>
