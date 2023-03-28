@@ -8,6 +8,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
 import { DateRangePicker } from '@mui/x-date-pickers-pro';
 import { disableOutOfRange } from '../../../utils/dateFunctions';
 
+const adapter = new AdapterDayjs();
+
 const DateRangePickerDemo = ({ setDateRangeState }) => {
   const [dates, setDates] = React.useState([null, null]);
 
@@ -24,7 +26,7 @@ const DateRangePickerDemo = ({ setDateRangeState }) => {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateRangePicker
         displayStaticWrapperAs="desktop"
-        minDate={new Date('2022-02-27')}
+        minDate={adapter.date(new Date('2022-02-27'))}
         shouldDisableDate={(date) => disableOutOfRange(date, dates)}
         disableFuture
         value={dates}
